@@ -3,7 +3,7 @@ name: data-visualization
 description: Guides users in selecting, designing, and refining effective data visualizations. Use when the user asks to "visualize data", "choose a chart type", "improve a graph", "reduce clutter", or "tell a story with data".
 metadata:
   author: Ohad Dahan
-  version: 2.1.0
+  version: 2.2.0
 ---
 
 # Data Visualization Expert
