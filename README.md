@@ -1,22 +1,151 @@
-# DataInk — AI Skills for Data Communication & Storytelling
+# DataInk
 
-> *"The greatest value of a picture is when it forces us to notice what we never expected to see."* — Edward Tufte
+## AI Skills for Data Communication and Storytelling
 
-DataInk is a collection of modular AI skills that turn Claude (or any compatible AI agent) into an expert-level data communication consultant. Each skill encodes battle-tested principles from the fields of data visualization, information design, and narrative storytelling — so you get consistent, high-quality outputs every time, without having to re-prompt the fundamentals.
+> *"The greatest value of a picture is when it forces us to notice what we never expected to see."*
+> — Edward Tufte
+
+DataInk is a collection of modular skills designed to help AI systems produce clear, effective data communication.
+
+Each skill captures established practices from data visualization, information design, and narrative communication. Instead of repeatedly explaining these practices to an AI system, they are packaged into structured `SKILL.md` workflows.
+
+The result is consistent output for charts, infographics, and presentations that follows sound communication principles.
 
 ---
 
-## Why DataInk?
+## Why DataInk
 
-Most data visualizations fail — not because the data is bad, but because the design is. Pie charts distort proportions. 3D graphics skew numbers. Cluttered graphs bury the signal in noise. And even well-designed charts fall flat when they lack a narrative that moves the audience to action.
+Many data visualizations fail not because the data is incorrect but because the communication is weak.
 
-DataInk solves this by packaging repeatable expert workflows into `SKILL.md` files that an AI agent can follow step-by-step. The result: every chart, infographic, and presentation you produce is grounded in the science of human visual perception, not guesswork.
+Common problems include:
+- pie charts that distort proportions
+- 3D charts that skew values
+- dashboards overloaded with visual noise
+- presentations that show numbers without explaining why they matter
+
+DataInk addresses these issues by encoding expert workflows into reusable AI skills.
+
+These workflows guide an AI system through the steps required to design charts, construct narratives, and communicate insights clearly.
+
+---
+
+## Use Cases
+
+DataInk can be applied in many situations where data must be communicated clearly.
+
+### Business reporting
+
+Transform analysis into clear executive communication.
+
+Examples include:
+- quarterly performance presentations
+- strategy updates
+- board reports
+- KPI dashboards
+
+Recommended workflow: `data-visualization` → `data-storyteller`
+
+### Dashboard and chart design
+
+Improve charts created in tools such as Excel, Tableau, Power BI, or Python.
+
+Examples include:
+- redesigning cluttered dashboards
+- selecting the correct chart type
+- removing unnecessary visual elements
+
+Recommended workflow: `data-visualization`
+
+### Data storytelling and presentations
+
+Structure presentations so the data supports a clear argument.
+
+Examples include:
+- product analytics presentations
+- marketing performance reviews
+- operations reports
+- research presentations
+
+Recommended workflow: `data-storyteller`
+
+### Infographics and visual reports
+
+Combine multiple insights into a single visual explanation.
+
+Examples include:
+- annual reports
+- research summaries
+- educational visualizations
+- public policy reports
+
+Recommended workflow: `infographic-creator`
+
+---
+
+## Design Philosophy
+
+DataInk is built on the idea that data visualization is a communication discipline.
+
+Charts often fail because they prioritize visual decoration instead of clarity and narrative structure. Effective data communication requires understanding the audience, identifying the key insight, and presenting information in a way that guides attention.
+
+The workflows in this repository translate these principles into repeatable steps that an AI system can follow.
+
+### Communication before visualization
+
+Effective visual communication begins with context.
+
+Before selecting a chart type, the following questions must be answered:
+- Who is the audience?
+- What decision must be made?
+- What insight matters most?
+
+The workflows therefore begin with narrative framing rather than chart design.
+
+### Explanatory analysis
+
+Exploratory analysis helps analysts discover insights.
+
+Explanatory analysis communicates those insights to others.
+
+The workflows in this repository focus on explanatory communication by removing unnecessary analysis and highlighting the insights that matter.
+
+### Visual simplicity
+
+Human perception processes information more effectively when visuals are simple and structured.
+
+Effective charts:
+- maximize the data ink ratio
+- remove unnecessary visual elements
+- highlight only a small portion of the visual
+- guide the viewer's attention
+
+### Narrative structure
+
+Data becomes persuasive when it is presented as part of a narrative.
+
+The storytelling workflows use a simple structure:
+1. Setup
+2. Conflict
+3. Resolution
+
+This structure ensures that data supports a clear message rather than appearing as isolated facts.
+
+### Modular workflows
+
+Each skill focuses on a specific communication task.
+- `data-visualization` focuses on chart design
+- `infographic-creator` focuses on visual summaries
+- `data-storyteller` focuses on narrative structure
+
+These skills can be used independently or combined into larger workflows.
 
 ---
 
 ## Repository Structure
 
-Each skill lives in its own directory with optional `assets/` (for brand guidelines) and `references/` (for deep-dive theory). This "progressive disclosure" design keeps token usage efficient — the AI loads only the context it needs.
+Each skill lives in its own directory with optional `assets/` and `references/` folders.
+
+This design follows a progressive disclosure approach so the AI loads only the context it needs.
 
 ```
 dataink/
@@ -49,157 +178,221 @@ dataink/
 
 ## The Skills
 
-### 1. Infographic Creator
+### Infographic Creator
 
-**What it does:** Guides the design, layout, color strategy, and narrative structure of data-driven infographics that actually inform — no fluff, no clip-art, no shallow "data decoration."
+**Purpose:** Design informative infographics that communicate insights rather than decorate data.
 
-**When to use it:**
-- "Create an infographic from these quarterly results"
-- "Design an information graphic for our annual report"
-- "Visualize these facts into a single cohesive visual"
-- "Apply our brand guidelines to an infographic"
+**Typical prompts:**
+- Create an infographic from these results
+- Design an information graphic for a report
+- Visualize several facts in one visual
+- Apply brand guidelines to an infographic
 
-**How it works:**
-1. **Context & Storyboard** — The skill starts by articulating the "3-minute story" (the concise "so-what" narrative), then storyboards a beginning, middle, and end.
-2. **Chart Selection** — Chooses the right display for each data point (simple text, bar charts, line graphs) and strips away clutter to maximize the data-ink ratio.
-3. **Branding & Color** — Automatically checks for `assets/brand-colors.md` and `assets/brand-fonts.md`. If they exist, it applies brand colors using the **10% Rule** (highlight at most 10% of the design). If they don't, it defaults to clean grey baselines with blue highlights.
-4. **Attention & Annotation** — Uses preattentive attributes (color, size, position) to guide the viewer's eyes, adds action titles to every chart, and annotates key insights directly next to the data.
+**Workflow:**
+1. Define the narrative using a three minute story
+2. Create a storyboard with beginning, middle, and end
+3. Select chart types and remove visual clutter
+4. Apply brand assets if available
+5. Highlight key insights using the ten percent rule
+6. Annotate important observations
 
-**Hard rules:** No 3D graphics. No pie charts. No donut charts. No secondary y-axes. No rainbow palettes.
-
----
-
-### 2. Data Visualization Expert
-
-**What it does:** Acts as an expert graphicacy consultant — helping you choose, design, and declutter individual charts and tables based on the science of human visual perception.
-
-**When to use it:**
-- "Visualize this data"
-- "What chart type should I use?"
-- "This graph is cluttered — help me improve it"
-- "Should I use a table or a chart here?"
-- "Reduce the clutter on this dashboard"
-
-**How it works:**
-1. **Medium Selection** — First determines whether a table or a graph is the right medium (tables for precise lookups; graphs for shapes and trends). Consults `references/medium-selection.md`.
-2. **Chart Type Selection** — Maps the data relationship (time-series, ranking, part-to-whole, correlation, distribution) to the optimal chart type using the matrix in `references/chart-types.md`.
-3. **Data-Ink Maximization** — Eliminates non-data ink: strips borders, background shading, heavy gridlines. Applies Gestalt principles (Proximity, Similarity, Closure) from `references/design-principles.md`.
-4. **Branding** — Checks for brand assets. Applies brand colors as strategic highlights while keeping the baseline muted.
-5. **Validation** — Runs the "Where are your eyes drawn?" test to confirm preattentive attributes direct focus to the intended narrative.
-
-**Hard rules:** No 3D graphics. No pie or donut charts. No secondary y-axes. Bar charts must always start at zero. No diagonal text.
+**Rules:** No pie charts. No donut charts. No 3D graphics. No rainbow color palettes. No secondary axes.
 
 ---
 
-### 3. Data Storyteller
+### Data Visualization Expert
 
-**What it does:** Shifts your communication from *exploratory* (presenting facts) to *explanatory* (crafting a persuasive narrative). Structures presentations, reports, and slide decks so the audience is the protagonist and the data drives a clear call to action.
+**Purpose:** Provide guidance for designing clear charts and tables.
 
-**When to use it:**
-- "Tell a story with this data"
-- "Structure my presentation for the board"
-- "Outline my slide deck"
-- "Improve the narrative flow of this report"
-- "I have a bunch of charts — help me tie them together"
+**Typical prompts:**
+- Visualize this dataset
+- Which chart type should I use
+- Improve this graph
+- Reduce clutter on this dashboard
 
-**How it works:**
-1. **Audience & Tension** — Identifies the protagonist (your audience) and the conflict between "what is" and "what could be."
-2. **Three-Act Arc** — Organizes the communication into Beginning (setup & imbalance), Middle (data as evidence, options, solution), and End (specific call to action). Consults `references/narrative-arc.md`.
-3. **Flow & Repetition** — Chooses between chronological flow (to build credibility) or leading with the ending (for busy executives). Applies the "Bing, Bang, Bongo" repetition principle. Consults `references/flow-and-repetition.md`.
-4. **Logic Validation** — Stress-tests the structure with three checks from `references/logic-validation.md`:
-   - **Horizontal Logic:** Reading only the slide titles tells the complete story.
-   - **Vertical Logic:** Every element on a page reinforces its title.
-   - **Reverse Storyboarding:** The main point of each page matches the original intended flow.
+**Workflow:**
+1. Decide whether a table or graph is appropriate
+2. Select the correct chart type based on the data relationship
+3. Maximize the data ink ratio
+4. Apply visual perception principles
+5. Validate attention flow
 
-**Hard rules:** The audience is always the hero. Every story must have a call to action. Every slide must use an action title, not a descriptive one.
+**Rules:** No pie charts. No 3D charts. No secondary axes. Bar charts must start at zero. Avoid diagonal labels.
+
+---
+
+### Data Storyteller
+
+**Purpose:** Transform collections of charts into structured narratives.
+
+**Typical prompts:**
+- Tell a story with this data
+- Structure my presentation
+- Outline my slide deck
+- Improve the narrative flow
+
+**Workflow:**
+1. Identify the audience and central tension
+2. Structure the story using a three act arc
+3. Choose narrative flow
+4. Apply repetition techniques
+5. Validate structure using logic checks
+
+Logic checks include:
+- horizontal logic
+- vertical logic
+- reverse storyboarding
 
 ---
 
 ## Getting Started
 
-### Prerequisites
+### Clone the repository
 
-- An AI agent that supports skill/instruction files (e.g., Claude with custom instructions, or any agent that can ingest markdown prompts).
+```bash
+git clone https://github.com/your-org/dataink.git
+```
 
-### Quick Start
+### Point your AI system to a skill
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/your-org/dataink.git
-   ```
+Example prompt:
 
-2. **Point the AI to a skill:** When starting a conversation, instruct the AI to follow the relevant `SKILL.md` file. For example:
-   ```
-   Follow the instructions in dataink/data-visualization/SKILL.md
-   to help me visualize the attached sales data.
-   ```
+```
+Follow the instructions in dataink/data-visualization/SKILL.md
+to help visualize the attached dataset.
+```
 
-3. **Customize brand assets (optional):** Edit the `assets/brand-colors.md` and `assets/brand-fonts.md` files with your corporate hex codes, font families, and sizes. The skills automatically detect and apply these when present.
+### Customize brand assets
 
-4. **Provide your data:** Feed the AI your raw data, chart drafts, or presentation outlines. The skill handles the rest — evaluating context, selecting displays, applying design principles, and validating the output.
+Edit the files:
+- `assets/brand-colors.md`
+- `assets/brand-fonts.md`
+
+If these files are populated, the skills will automatically apply the brand settings.
 
 ### Combining Skills
 
-The skills are designed to work independently or together. A typical end-to-end workflow might look like:
+A common workflow looks like this:
 
-1. **Data Visualization Expert** — Design each individual chart with the right type, clean layout, and brand colors.
-2. **Infographic Creator** — Combine multiple charts into a single cohesive infographic with narrative flow.
-3. **Data Storyteller** — Structure the infographic (or a series of visuals) into a presentation with a three-act arc and validated logic.
-
----
-
-## Customizing Brand Assets
-
-The `assets/` folders contain template files you can customize for your organization:
-
-**`brand-colors.md`** — Define your color palette:
-- Primary highlight color (hex code)
-- Secondary highlight color
-- Baseline/muted colors
-- Background color (light or dark)
-
-**`brand-fonts.md`** — Define your typography:
-- Primary and secondary typefaces
-- Sizes for titles, labels, and footnotes
-
-When these files are populated, the skills automatically enforce your brand while following best practices (the 10% highlight rule, sufficient contrast checks, dark-template adjustments).
+1. **Data Visualization Expert** — Design individual charts.
+2. **Infographic Creator** — Combine charts into a visual summary.
+3. **Data Storyteller** — Structure the visuals into a presentation narrative.
 
 ---
 
 ## Core Principles
 
-Every skill in DataInk is built on these foundational ideas:
-
-| Principle | What It Means |
+| Principle | Meaning |
 |---|---|
-| **Data-Ink Ratio** | Maximize the share of ink devoted to actual data. Remove everything else. |
-| **The 10% Rule** | Highlight at most 10% of the visual. Over-highlighting dilutes everything. |
-| **Preattentive Attributes** | Use color, size, and position to guide attention before conscious thought kicks in. |
-| **Gestalt Perception** | Leverage proximity, similarity, and closure to reduce cognitive load. |
-| **Action Titles** | Every chart and slide gets a title that states the insight, not just the topic. |
-| **Audience as Protagonist** | The story is about them — their problem, their stakes, their call to action. |
-| **Zero-Baseline Bars** | Bar charts encode value by length. A non-zero baseline lies. |
-| **No Pie Charts** | Humans are bad at comparing angles and areas. Use bars instead. |
+| Data ink ratio | Maximize ink devoted to data |
+| Ten percent rule | Highlight only a small portion of the visual |
+| Preattentive attributes | Use color, size, and position to guide attention |
+| Gestalt perception | Organize information using proximity and similarity |
+| Action titles | Titles state insights rather than topics |
+| Audience as protagonist | The story focuses on the audience |
+| Zero baseline bars | Bar charts encode values by length |
+| Avoid pie charts | Humans compare angles poorly |
+
+---
+
+## Roadmap
+
+Future additions planned for DataInk include:
+
+### Dashboard Design
+
+Guidelines for building dashboards that support decision making.
+
+Potential features include:
+- dashboard layout structure
+- KPI prioritization
+- interaction design
+- cognitive load reduction
+
+### Annotation and Insight Highlighting
+
+Methods for clearly explaining what charts show.
+
+Possible capabilities:
+- annotation strategies
+- insight callouts
+- explanation patterns
+
+### Accessibility and Inclusive Visualization
+
+Practices that improve readability and accessibility.
+
+Potential topics include:
+- color blind safe palettes
+- contrast validation
+- font readability
+- visual hierarchy for accessibility
+
+### Visualization Review
+
+A skill that critiques existing charts and suggests improvements.
+
+Possible capabilities include:
+- clutter detection
+- misleading chart detection
+- design improvement suggestions
 
 ---
 
 ## Contributing
 
-Contributions are welcome. If you have a new skill to add (e.g., dashboard design, annotation strategy, accessibility checks), follow the existing structure:
+Contributions are welcome.
 
-1. Create a new directory under the root with a descriptive name.
-2. Add a `SKILL.md` with frontmatter (name, description, metadata), instructions, examples, and troubleshooting.
-3. Add `references/` files for any deep-dive theory the skill consults.
-4. Add `assets/` files if the skill supports brand customization.
+To add a new skill:
+1. Create a new directory
+2. Add a `SKILL.md`
+3. Include reference files if needed
+4. Add asset files if brand customization is required
 
 ---
 
 ## License
 
-This project is open source. See the [LICENSE](LICENSE) file for details.
+See the [LICENSE](LICENSE) file for details.
 
 ---
 
 ## Acknowledgments
 
-The principles encoded in these skills draw heavily from the work of **Cole Nussbaumer Knaflic** (*Storytelling with Data*), **Edward Tufte** (*The Visual Display of Quantitative Information*), and the **Gestalt school of visual perception**. DataInk operationalizes their teachings into repeatable, AI-executable workflows.
+This repository draws on widely recognized principles in data visualization and analytical storytelling.
+
+### Cole Nussbaumer Knaflic
+
+Several narrative concepts in this repository are inspired by the methods described in *Storytelling with Data*.
+
+These include:
+- defining a three minute story
+- identifying a clear central message
+- structuring communication around a narrative arc
+- guiding attention using preattentive attributes
+- validating communication through logical structure
+
+These ideas influence the `data-storyteller` and `infographic-creator` skills.
+
+### Edward Tufte
+
+Some visualization principles used in this repository reflect ideas discussed in *The Visual Display of Quantitative Information*.
+
+These include:
+- maximizing the data ink ratio
+- removing non data elements
+- prioritizing clarity over decoration
+
+### Visual Perception Research
+
+The design principles used in the skills are also informed by research from the Gestalt school of visual perception.
+
+Relevant concepts include:
+- proximity
+- similarity
+- closure
+- visual hierarchy
+
+---
+
+**Disclaimer:** This repository does not reproduce material from the referenced works. It applies widely known visualization and storytelling principles to create structured workflows for charts, infographics, and data narratives.
