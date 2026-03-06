@@ -356,45 +356,40 @@ See the LICENSE file for details.
 
 ---
 
-# Acknowledgments
+## Acknowledgments and Attribution
 
-This repository draws on widely recognized principles in data visualization and analytical storytelling.
+This repository adapts concepts, frameworks, and principles from the following authors and works. It is intended as a practical workflow tool, not a substitute for reading the original books — which are highly recommended.
 
-## Cole Nussbaumer Knaflic
+### Cole Nussbaumer Knaflic — *Storytelling with Data* (Wiley, 2015)
 
-Some narrative concepts are inspired by the work presented in *Storytelling with Data*.
+The `data-storyteller` and `infographic-creator` skills are substantially adapted from techniques described in this book. Specific frameworks and concepts used include:
 
-These include:
+- **The "3-Minute Story"** — a planning exercise for distilling the core narrative (Chapter 1)
+- **The "Big Idea"** — a single-sentence formulation of the key message, originally from Nancy Duarte's *Resonate* (Wiley, 2010) and presented by Knaflic with three structural criteria (Chapter 1)
+- **The Three-Act Narrative Arc** applied to data presentations, with the "setting / main character / imbalance" framing credited by Knaflic to Cliff Atkinson's *Beyond Bullet Points* (Microsoft Press, 2005) (Chapter 7)
+- **The tension between "what is" and "what could be"** — a framing attributed by Knaflic to Nancy Duarte's *Resonate* (Chapter 7)
+- **"Lead with the Ending"** — a narrative flow strategy for time-constrained audiences (Chapter 8)
+- **"Bing, Bang, Bongo"** — a three-pass repetition mnemonic (Chapter 8)
+- **"Repeatable Sound Bites"** — attributed by Knaflic to Nancy Duarte (Chapter 8)
+- **Horizontal Logic, Vertical Logic, and Reverse Storyboarding** — presentation validation tactics (Chapter 8)
+- **The "where are your eyes drawn?" test** — a validation exercise for preattentive attribute effectiveness (Chapter 5)
+- **Action titles** — the practice of using insight-driven slide titles rather than topic labels
+- **Chart selection guidance** — mapping data relationships to chart types, including specific recommendations against pie charts, 3D graphics, and secondary y-axes (Chapter 2)
+- **Application of Gestalt principles** (proximity, similarity, closure, enclosure) to chart design (Chapter 3)
+- **Table vs. graph selection** guidance (Chapter 2)
 
-- defining a three minute story  
-- identifying a clear central message  
-- structuring communication around a narrative arc  
-- guiding attention using preattentive attributes  
-- validating communication using logical structure  
+The `data-visualization` skill also draws on several of these design and chart selection principles.
 
-These ideas influence the data-storyteller and infographic-creator skills.
+### Edward Tufte — *The Visual Display of Quantitative Information* (Graphics Press, 1983)
 
-## Edward Tufte
+The "data-ink ratio" concept — the principle that the share of a graphic's ink devoted to data should be maximized — originates in this work. The related practices of removing chart borders, background fills, and decorative gridlines are applications of this principle.
 
-Several visualization ideas reflect concepts discussed in *The Visual Display of Quantitative Information*.
+### Lidwell, Holden, and Butler — *Universal Principles of Design* (Rockport, 2003)
 
-These include:
+The **10% highlighting guideline** — the recommendation that at most 10% of a visual's surface should be highlighted — originates in this book. It is cited by Knaflic in *Storytelling with Data* and is used throughout this repository's skills.
 
-- maximizing the data ink ratio  
-- removing non data elements  
-- prioritizing clarity over decoration  
+### Visual Perception Research
 
-## Visual Perception Research
+The Gestalt principles of visual perception (proximity, similarity, closure, continuity) originate in early 20th-century perceptual psychology research. Their application to data visualization is widely discussed in the field.
 
-The design principles used in the skills are also informed by research from the Gestalt school of visual perception.
-
-Relevant concepts include:
-
-- proximity  
-- similarity  
-- closure  
-- visual hierarchy  
-
-## Disclaimer
-
-This repository does not reproduce material from the referenced works. It applies widely known visualization and storytelling principles to create structured workflows for charts, infographics, and data narratives.
+**Disclaimer:** This repository adapts and reorganizes concepts from the works listed above into structured AI workflows. All borrowed frameworks are attributed to their originators. The text has been written in the author's own words and is not a reproduction of the original works. For the full depth of these ideas, readers are encouraged to consult the source books directly.

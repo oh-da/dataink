@@ -1,27 +1,29 @@
 # Visual Hierarchy & Design Principles
 
-Creating a clear visual hierarchy establishes implicit instructions for your audience, indicating the exact order in which they should process the information. By carefully manipulating visual elements, you can signal what is most important, what is second most important, and push necessary but non-essential details to the background.
+A clear visual hierarchy tells the audience what to look at first, second, and third — without requiring them to search. By deliberately controlling visual properties, you signal importance and push supporting details to the background.
+
+> *The application of preattentive attributes and Gestalt principles to chart design, the "where are your eyes drawn?" validation test, and the 10% highlighting guideline are adapted from Cole Nussbaumer Knaflic's* Storytelling with Data *(Wiley, 2015), Chapters 3 and 5. The 10% guideline originates in Lidwell, Holden, and Butler's* Universal Principles of Design *(Rockport, 2003). The Z-pattern reading behavior draws on general eye-tracking research.*
 
 ## 1. Preattentive Attributes
-Our brains are hardwired to quickly pick up visual differences in our environment without conscious thought. You can leverage these preattentive attributes to draw attention and establish order:
-*   **Size:** Relative size denotes relative importance. If you have one truly important takeaway, signal this by making it BIG. 
-*   **Color:** Use color sparingly and strategically. The more things you make differently colored, the lesser the degree to which any of them stand out. 
-*   **Position on Page:** Without other visual cues, audiences naturally start at the top-left of a page and scan in zigzagging "Z" shapes. The top-left is precious real estate; put your most important message or main takeaway there so the audience does not have to wade through other information to find it.
+The brain detects differences in size, color, and spatial position before conscious thought engages. Use these attributes deliberately to direct attention and establish reading order:
+*   **Size:** Larger elements are read as more important. If there is one key takeaway, make it physically dominant.
+*   **Color:** Use color sparingly. The more elements you color differently, the less any single one stands out.
+*   **Position on Page:** Eye-tracking research shows readers of left-to-right languages start at the top-left and sweep in a rough Z-pattern. Place your most important insight in that top-left zone so the audience encounters it first.
 
 ## 2. Highlighting and De-emphasizing
-The decision of what to de-emphasize can be even more important than what you choose to highlight.
-*   **The 10% Rule:** Highlight a maximum of 10% of the visual design. If you highlight too much, the effects become diluted and the visual becomes overwhelming.
-*   **De-emphasize the Baseline:** Push necessary, but non-message-impacting items to the background so they do not compete for attention. Using a light grey color works exceptionally well for baseline data, axes, and secondary information. 
+Deciding what to push to the background can matter more than what you choose to emphasize.
+*   **The 10% Guideline (Lidwell et al.):** Reserve highlighting for at most 10% of the visual surface. Over-highlighting dilutes the effect and makes the visual feel uniformly loud.
+*   **De-emphasize the Baseline:** Render supporting elements — axes, secondary data, reference lines — in light grey so they provide context without competing for attention.
 
 ## 3. Gestalt Principles for Organization
-Apply the Gestalt Principles of Visual Perception to reduce cognitive load and organize your design:
-*   **Proximity:** People perceive objects that are physically close together as belonging to a group. Place data labels directly next to the data they describe to eliminate the need for separate legends.
-*   **Similarity:** Objects of similar color or shape are perceived as related. Make text labels the exact same color as the line or bar they describe to visually tie them together.
-*   **Closure & Continuity:** People naturally prefer simplicity and will mentally fill in visual gaps. Because of this, chart borders, background shading, and heavy gridlines are unnecessary clutter and should be removed. 
+Apply perceptual grouping principles to reduce the cognitive effort of reading your design:
+*   **Proximity:** Position data labels directly beside the marks they describe instead of in a separate legend — closeness implies belonging.
+*   **Similarity:** Color-code a text label to match its corresponding bar or line, making the association immediate.
+*   **Closure & Continuity:** The brain fills in missing boundaries, so chart borders, background boxes, and heavy gridlines are unnecessary — removing them lets the data breathe.
 
 ## 4. Alignment and White Space
-*   **Alignment:** Avoid center-aligned text and diagonal elements. Instead, upper-left-most justify your text (titles, axis labels) to create clean vertical and horizontal lines.
-*   **White Space:** Do not fear white space. Never stretch a visual just to take up available room, and never add data just to fill empty space. Use white space strategically to draw attention to the elements on the page that are *not* white space.
+*   **Alignment:** Avoid center-aligned text and diagonal elements. Left-justify titles, axis labels, and annotations to create clean sight lines. This ensures the audience reads contextual information before reaching the data.
+*   **White Space:** Treat empty space as a design element, not a void to fill. Generous margins and strategic gaps draw attention to the content that remains.
 
-## 5. Validation Check
-Always test your visual hierarchy using the **"where are your eyes drawn?"** test. Look away or close your eyes for a moment, then look back at the visual. Take note of where your eyes land first, second, and third. If your eyes do not immediately land where you want your audience to focus, you need to adjust your use of color, size, and layout.
+## 5. Validation: The "Eyes Drawn" Test (Knaflic)
+After completing the visual, look away for a moment, then look back. Note where your gaze lands first, second, and third. If it does not settle on your intended focal point, adjust color, size, or layout until it does.

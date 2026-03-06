@@ -8,6 +8,8 @@ metadata:
 
 # Data Visualization Expert
 
+> *This skill draws on the data-ink ratio concept from Edward Tufte's* The Visual Display of Quantitative Information *(Graphics Press, 1983) and on chart selection, design, and validation techniques from Cole Nussbaumer Knaflic's* Storytelling with Data *(Wiley, 2015). The 10% highlighting guideline originates in Lidwell, Holden, and Butler's* Universal Principles of Design *(Rockport, 2003). See reference files for detailed attributions.*
+
 -# Performance Notes
 - Take your time to do this thoroughly.
 - Quality is more important than speed.
@@ -40,14 +42,14 @@ Before applying colors and fonts, check for the presence of brand guidelines.
 * **Brand Assets Check:** Look for `assets/brand-colors.md` and `assets/brand-fonts.md`. 
     * **If they exist:** Strictly utilize the primary/secondary brand colors and fonts defined in those files. Identify one or two brand-appropriate colors to use as "audience-look-here" cues, and keep the rest of the palette muted.
     * **If they do not exist:** Continue without them. Standardize on soft, natural colors (like grey) for baseline data, and reserve a single bright or dark color (like blue) strictly for highlighting the most important information. 
-* **The 10% Rule:** Highlight a maximum of 10% of the visual design. Over-highlighting dilutes the effect.
+* **The 10% Guideline (Lidwell et al.):** Reserve highlighting for at most 10% of the visual surface. Over-highlighting dilutes the effect.
 
 ### Step 5: Focus Attention and Tell a Story
 Think like a designer to guide the audience's eyes. 
 * Ensure every graph has a clear title, labeled axes, and actionable text (e.g., an action title replacing a descriptive title).
 
-### Step 6: Validation Check
-Run the "Where are your eyes drawn?" test.
+### Step 6: Validation Check (Knaflic)
+Run the "where are your eyes drawn?" test.
 * Simulate looking away and looking back at the graph.
 * Verify that the strategic use of preattentive attributes (color, size, position) immediately directs focus to the intended narrative without distractions.
 

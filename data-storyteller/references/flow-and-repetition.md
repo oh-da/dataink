@@ -1,26 +1,28 @@
 # Narrative Flow and Repetition
 
-When crafting a data-driven story, the narrative is what ties the information together and gives your presentation or communication a framework for your audience to follow. A successful narrative relies on a deliberate flow and the strategic use of repetition.
+When crafting a data-driven story, the narrative ties the information together and gives your audience a framework to follow. A successful narrative relies on deliberate ordering and the strategic use of repetition.
+
+> *The "Lead with the Ending" strategy and the "Bing, Bang, Bongo" repetition mnemonic described below are from Cole Nussbaumer Knaflic's* Storytelling with Data *(Wiley, 2015), Chapter 8. The concept of repeatable sound bites is attributed by Knaflic to Nancy Duarte's* Resonate *(Wiley, 2010).*
 
 ## 1. Narrative Flow (The Order of Your Story)
-The narrative flow is the specific path along which you take your audience. You should intentionally choose this path based on who your audience is and what they need.
+The narrative flow is the sequence in which you present your argument. Choose the sequence deliberately based on your audience and their needs.
 
-*   **Chronological Order:** This follows the natural analytical process (identify the problem -> gather data -> analyze -> recommend a solution). 
-    *   *Best used when:* You need to establish credibility with a new audience, or when you know the audience cares deeply about the analytical process.
-*   **Lead with the Ending:** Start with your main takeaway or call to action right at the beginning, and then back up into the supporting data. 
-    *   *Best used when:* You are presenting to a busy audience (like executives) who just want the "so what", or when you already have an established, trusting relationship with the decision-makers.
+*   **Chronological Order:** Walk the audience through your analytical process step by step — identify the problem, show the data, present the analysis, arrive at a recommendation.
+    *   *Best used when:* You need to build credibility with a new audience, or the audience values understanding how you reached your conclusion.
+*   **Lead with the Ending (Knaflic):** Open with your recommendation or call to action, then provide the supporting evidence. This gives the audience a frame of reference for evaluating every subsequent data point.
+    *   *Best used when:* The audience is time-constrained (e.g., executives), already trusts your analytical rigor, or cares primarily about the outcome rather than the process.
 
 ## 2. Spoken vs. Written Narrative
-The flow of your story must adapt to the medium you are using to communicate.
+The flow must adapt to how the audience will consume it.
 
-*   **Live Presentations (Spoken):** You have the benefit of a voiceover. Keep the slides sparse and use your spoken words to make the "so what" of each visual clear, making it relevant and tying one idea to the next.
-*   **Written Reports or Circulated Decks (Written):** You do not have the benefit of a voiceover to explain the relevance. The written narrative must stand entirely on its own. Ensure the "so what" is explicitly stated on every single page so the audience is never left guessing what they are meant to get out of it.
+*   **Live Presentations (Spoken):** You can narrate the "so what" verbally, so keep slides sparse and let your voice carry the connective tissue between visuals.
+*   **Written Reports or Circulated Decks (Written):** The document must stand on its own. State the takeaway explicitly on every page so a reader never has to guess the point of a chart or section.
 
 ## 3. The Power of Repetition
-Hearing, reading, and saying things repeatedly transfers information from short-term to long-term memory. You can leverage repetition to ensure your story sticks with the audience long after the communication is over.
+Reinforcing key messages through repetition helps move them from short-term recall into lasting memory.
 
-*   **Repeatable Sound Bites:** Create succinct, clear, and memorable phrases that your audience can easily recall, repeat, and transfer to others.
-*   **Bing, Bang, Bongo:** Use this classic structural tactic to reinforce your message three times:
-    *   *Bing (The Introduction):* Tell them what you are going to tell them. Use an executive summary at the beginning to set expectations.
-    *   *Bang (The Middle):* Tell it to them. Walk through the detailed data and the core conflict of your story.
-    *   *Bongo (The Conclusion):* Summarize what you just told them. End with a slide that reviews the main points and clearly repeats the call to action.
+*   **Repeatable Sound Bites (Duarte, via Knaflic):** Craft short, memorable phrases that capture your core message. If your audience can repeat your main point in their own words after the presentation, the message stuck.
+*   **Bing, Bang, Bongo (Knaflic):** A three-pass structure that reinforces the message at the start, middle, and end of the communication:
+    *   *Bing (Preview):* Open with an executive summary that previews what you will cover and what you will ask for.
+    *   *Bang (Detail):* Present the full data, the conflict, and the evidence supporting your recommendation.
+    *   *Bongo (Recap):* Close with a summary that restates the key findings and repeats the call to action.

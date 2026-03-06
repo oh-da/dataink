@@ -8,6 +8,8 @@ metadata:
 
 # Infographic Creator
 
+> *This skill draws on data visualization principles from Edward Tufte's* The Visual Display of Quantitative Information *(Graphics Press, 1983) and narrative/design techniques from Cole Nussbaumer Knaflic's* Storytelling with Data *(Wiley, 2015). The "3-minute story" framework is Knaflic's; the 10% highlighting guideline originates in Lidwell, Holden, and Butler's* Universal Principles of Design *(Rockport, 2003). See reference files for detailed attributions.*
+
 -# Performance Notes
 - Take your time to do this thoroughly.
 - Quality and accuracy are more important than speed.
@@ -21,7 +23,7 @@ metadata:
 ## Instructions
 
 ### Step 1: Understand the Context and Storyboard
-Before choosing charts or colors, articulate the "3-minute story" (the concise narrative boiling down the "so-what"). 
+Before choosing charts or colors, articulate the "3-minute story" (Knaflic) — the concise narrative boiling down the "so-what". 
 - Create a visual outline (storyboard) with a clear beginning (setup), middle (data evidence), and end (takeaway).
 - Group related facts into "chunks" to avoid overwhelming the audience.
 
@@ -37,7 +39,7 @@ Before applying colors and typography, check for the presence of brand guideline
     * **If they do not exist:** Continue without them, defaulting to standard clean typography (like Arial or sans-serif) and a standard color palette (grey baseline with blue highlights).
 
 * **Apply Color Best Practices:**
-    1. **Highlight Strategically (The 10% Rule):** Identify 1-2 brand-appropriate colors to serve as "audience-look-here" cues. Highlight a maximum of 10% of the visual design so the effect isn't diluted.
+    1. **Highlight Strategically (The 10% Guideline — Lidwell et al.):** Identify 1-2 brand-appropriate colors to serve as "audience-look-here" cues. Reserve highlighting for at most 10% of the visual surface so the effect is not diluted.
     2. **Mute the Baseline:** Keep the remainder of the chart muted. Standardize on soft, natural colors (like light grey) to push non-essential data to the background.
     3. **Ensure Sufficient Contrast:** If the primary brand color is too light or washes out the visual, deviate slightly by using bold black or a complementary color to draw attention, provided it does not clash with the brand's logo.
     4. **Account for Dark Templates:** If the brand mandates a dark or black background, reverse the contrast rules: black becomes the baseline, grey stands out less, and white or bright colors (like yellow) become the highly attention-grabbing highlight colors.

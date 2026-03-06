@@ -1,48 +1,50 @@
 # Chart Selection Matrix
 
-To select the most effective chart, you must first identify the specific data relationship you are trying to communicate. Use the following matrix to match the data relationship with the appropriate visual display, and adhere to the strict design rules for each chart type.
+To select the most effective chart, first identify the data relationship you are trying to communicate, then match it to the appropriate visual form.
+
+> *The chart selection guidance and specific design rules below are adapted from Cole Nussbaumer Knaflic's* Storytelling with Data *(Wiley, 2015), Chapter 2. Recommendations against pie charts, 3D graphics, and secondary y-axes reflect a broad consensus in the data visualization field, discussed by Knaflic as well as by Edward Tufte and Stephen Few.*
 
 ## 1. Map the Relationship to the Chart
 
-*   **Time-Series (Changes over time):** Use **Line Graphs** or **Vertical Bar Charts**. Lines emphasize the overall trend and nature of change. Vertical bars are better if you need to emphasize individual values for specific months/years.
-*   **Nominal Comparison (Comparing independent categories):** Use **Bar Charts** (vertical or horizontal). Never use a line graph, as the slope connecting the points would falsely imply a continuous change between independent items.
-*   **Ranking (Comparing categories sequentially by value):** Use **Bar Charts**. Sort the bars in descending or ascending order to emphasize high or low values.
-*   **Part-to-Whole (How parts make up a total):** Use **Stacked Bar Charts** or standard **Bar Charts** (with a title explicitly stating they sum to 100%). *Never use Pie Charts.* 
-*   **Deviation (Difference from a plan or reference point):** Use **Bar Charts** or **Line Graphs** paired with a clear reference line. The reference line should typically be set to zero, with bars extending up for positive and down for negative deviations.
-*   **Correlation (Relationship between two variables):** Use **Scatterplots** (points) or points with trend lines.
-*   **Distribution (Frequency of occurrence within ranges):** Use **Vertical Bar Charts** (histograms) or Box Plots (bars and lines).
+*   **Time-Series (Changes over time):** Use **Line Graphs** or **Vertical Bar Charts**. Lines emphasize the overall trend and rate of change. Vertical bars work better when the focus is on specific discrete values at individual time points.
+*   **Nominal Comparison (Comparing independent categories):** Use **Bar Charts** (vertical or horizontal). Avoid line graphs for categorical data — the connecting slope falsely implies continuity between unrelated items.
+*   **Ranking (Ordering categories by value):** Use **Bar Charts** sorted from highest to lowest (or vice versa) so the ranking is visually obvious.
+*   **Part-to-Whole (How parts compose a total):** Use **Stacked Bar Charts** or standard **Bar Charts** with a title that explicitly states the parts sum to 100%. *Never use Pie Charts.*
+*   **Deviation (Difference from a baseline or target):** Use **Bar Charts** or **Line Graphs** paired with a reference line at zero. Bars should extend upward for positive deviations and downward for negative ones.
+*   **Correlation (Relationship between two variables):** Use **Scatterplots**, optionally with a trend line to make the direction and strength of the relationship clearer.
+*   **Distribution (How values spread across a range):** Use **Histograms** (vertical bar charts with continuous bins) or **Box Plots**.
 
 ## 2. Rules for Specific Chart Types
 
 **Simple Text**
-*   **Use when:** You only have one or two numbers to share.
-*   **Design Rule:** Make the number as prominent as possible with a few supporting words. Do not force a single data point into a graph.
+*   **Use when:** You have only one or two numbers to communicate.
+*   **Design Rule:** Display the number prominently with a brief supporting phrase. Do not wrap a lone data point in a chart — the chart adds overhead without adding insight.
 
 **Line Graphs**
-*   **Use when:** Displaying continuous data, such as units of time (days, months, years) or frequency distributions. 
-*   **Design Rule:** Never use line graphs for categorical (nominal) data.
+*   **Use when:** Showing continuous data over an ordered dimension — typically time (days, months, years) or frequency.
+*   **Design Rule:** Never plot categorical (nominal) data as a line.
 
 **Slopegraphs**
-*   **Use when:** You have exactly two time periods or two points of comparison and want to quickly show relative increases, decreases, or differences across categories.
+*   **Use when:** Comparing exactly two time periods or two conditions, and you want to show relative change across multiple categories at once.
 
 **Bar Charts (Vertical and Horizontal)**
 *   **Use when:** Plotting categorical data, rankings, or nominal comparisons.
-*   **Design Rules:** 
-    *   **Zero Baseline:** Because bars encode value by length, they **must always begin at a value of zero**.
-    *   **Orientation:** Default to **Horizontal Bar Charts** if your category names are long; the text is written from left to right, making it much easier for the audience to read without turning their heads.
+*   **Design Rules:**
+    *   **Zero Baseline:** Bars encode magnitude through their length, so they **must always start at zero**. Truncating the baseline distorts the visual comparison.
+    *   **Orientation:** Default to **Horizontal Bar Charts** when category labels are long — horizontal text is far easier to read than rotated or diagonal labels.
 
 **Stacked Bar Charts**
-*   **Use when:** You must compare totals across categories while also showing the subcomponent pieces.
-*   **Design Rules:** Be cautious, as subcomponents (anything above the bottom baseline) are hard to compare accurately. For survey data (like a Likert scale from Disagree to Agree), use a **100% Stacked Horizontal Bar Chart** to provide a consistent baseline on both the left and right sides.
+*   **Use when:** You need to compare totals across categories while also revealing subcomponent composition.
+*   **Design Rules:** Subcomponents above the first segment are difficult to compare precisely because they lack a shared baseline. For survey data (e.g., a Likert scale), a **100% Stacked Horizontal Bar Chart** provides consistent baselines on both the left and right edges.
 
 **Waterfall Charts**
-*   **Use when:** You need to pull apart the pieces of a stacked bar chart to show a starting point, positive and negative changes, and the resulting ending point (e.g., headcount changes over a year). 
+*   **Use when:** You need to decompose a total into sequential positive and negative contributions — for example, showing how headcount changed from a starting value to an ending value over a year.
 
 **Scatterplots**
-*   **Use when:** You need to show the relationship between two things by encoding data simultaneously on a horizontal x-axis and vertical y-axis.
+*   **Use when:** Exploring the relationship between two quantitative variables by plotting each observation as a point along two axes.
 
 ## 3. Visuals to ALWAYS Avoid
 
-*   **Pie and Donut Charts:** Human visual perception is notoriously bad at comparing angles and 2D areas. Donut charts simply add a hole to a pie chart and ask the audience to compare arc lengths, which is equally difficult. Use a bar chart instead.
-*   **3D Graphics:** Never use 3D to plot a single dimension. 3D elements add zero value, physically skew the numbers, and make the graph almost impossible to interpret accurately
-*   **Secondary Y-Axes:** Displaying data against a second right-hand y-axis forces the audience to do the mental work of figuring out which data goes with which axis. Instead, either label the data points directly in the chart, or pull the graphs apart vertically into two separate graphs that share the same horizontal x-axis.
+*   **Pie and Donut Charts:** Humans judge angles and areas poorly, making it hard to compare slice sizes. Donut charts compound the problem by asking readers to compare arc lengths. A simple bar chart communicates the same data far more accurately.
+*   **3D Graphics:** Adding a third visual dimension to encode a single data dimension distorts values and makes accurate reading nearly impossible. There is no analytical benefit.
+*   **Secondary Y-Axes:** A right-hand y-axis requires the reader to constantly check which data maps to which scale — a cognitive tax that obscures rather than reveals. Instead, label data points directly, or split the data into two vertically stacked charts that share the same x-axis.
