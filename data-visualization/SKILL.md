@@ -8,7 +8,7 @@ metadata:
 
 # Data Visualization Expert
 
-> *This skill draws on the data-ink ratio concept from Edward Tufte's* The Visual Display of Quantitative Information *(Graphics Press, 1983) and on chart selection, design, and validation techniques from Cole Nussbaumer Knaflic's* Storytelling with Data *(Wiley, 2015). The 10% highlighting guideline originates in Lidwell, Holden, and Butler's* Universal Principles of Design *(Rockport, 2003). See reference files for detailed attributions.*
+> *This skill draws on the data-ink ratio concept from Edward Tufte's* The Visual Display of Quantitative Information *(Graphics Press, 1983), on chart selection and relationship taxonomy from Stephen Few's* Show Me the Numbers *(Perceptual Edge, 2004), and on design and validation techniques from Cole Nussbaumer Knaflic's* Storytelling with Data *(Wiley, 2015). The 10% highlighting guideline originates in Lidwell, Holden, and Butler's* Universal Principles of Design *(Rockport, 2003). See reference files for detailed attributions.*
 
 -# Performance Notes
 - Take your time to do this thoroughly.
@@ -41,7 +41,7 @@ Evaluate the chosen visual to eliminate clutter and remove "non-data ink".
 Before applying colors and fonts, check for the presence of brand guidelines.
 * **Brand Assets Check:** Look for `assets/brand-colors.md` and `assets/brand-fonts.md`. 
     * **If they exist:** Strictly utilize the primary/secondary brand colors and fonts defined in those files. Identify one or two brand-appropriate colors to use as "audience-look-here" cues, and keep the rest of the palette muted.
-    * **If they do not exist:** Continue without them. Standardize on soft, natural colors (like grey) for baseline data, and reserve a single bright or dark color (like blue) strictly for highlighting the most important information. 
+    * **If they do not exist:** Continue without them. Standardize on soft, muted colors (like grey) for baseline data, and reserve a single vivid color (like blue) strictly for highlighting the most important information (a strategy described by Stephen Few in *Show Me the Numbers*).
 * **The 10% Guideline (Lidwell et al.):** Reserve highlighting for at most 10% of the visual surface. Over-highlighting dilutes the effect.
 
 ### Step 5: Focus Attention and Tell a Story

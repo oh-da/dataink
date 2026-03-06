@@ -8,22 +8,21 @@ A successful data communication follows the same arc as any compelling story: se
 
 Open by establishing shared context. Before you can introduce a problem, the audience needs to know what world they are in and why they should care. This section should immediately answer: *Why does this matter to me?*
 
-Address these elements:
-*   **The setting:** What is the relevant time frame, market, or organizational context?
-*   **The main character (Atkinson, via Knaflic):** Who needs to take action? Frame this around your audience — they are the protagonist, not you.
-*   **The imbalance:** What has changed or gone wrong? Establish the gap between the current state and the desired state (what Nancy Duarte calls the tension between "what is" and "what could be") so the audience has a stake in the resolution.
-*   **The balance:** What outcome are you advocating for?
+To ground the opening, answer two questions before you draft a single slide:
+
+1. **Who must act, and what world are they in?** Identify your audience as the protagonist (not yourself) and establish the relevant context — time frame, market, or organizational situation. This ensures the audience recognizes the story as *theirs*.
+2. **What is at stake?** Name the specific gap between the current state and the desired outcome. Nancy Duarte calls this the tension between "what is" and "what could be." Without a clearly articulated stake, the audience has no reason to stay engaged.
+
+These two questions synthesize the "setting / main character / imbalance / balance" framework that Knaflic (Ch. 7) adapted from Cliff Atkinson's *Beyond Bullet Points*.
 
 ## Act II: The Middle (Conflict)
 
 The middle is the bulk of your communication. Its job is to sustain attention by building the case for your recommended action.
 
-Include content that:
-*   Provides external benchmarks or comparison points to anchor the data.
-*   Uses charts and examples to make the problem concrete and visible.
-*   Spells out the consequences of inaction — what happens if nothing changes.
-*   Demonstrates the benefits of the proposed solution.
-*   Makes clear why this audience is uniquely positioned to act.
+Structure the middle around two contrasting forces:
+
+*   **The cost of standing still:** Use data, examples, or external benchmarks to make the problem tangible. Show what deteriorates, what is lost, or what risk grows if the audience does nothing.
+*   **The payoff of acting:** Present your recommended solution and quantify its benefits. Connect the solution directly to the gap established in Act I, and explain why *this audience* — given their role, resources, or authority — is the right group to act on it.
 
 ## Act III: The End (Resolution)
 

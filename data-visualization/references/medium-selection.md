@@ -1,30 +1,26 @@
 # Medium Selection: Table vs. Graph
 
-The first fundamental challenge of data presentation is determining the medium that tells your story best. Before choosing a specific chart type, you must decide whether your data is best served by a table or a graph.
+Before selecting a specific chart type, decide whether your data belongs in a table or a graph. The two mediums engage different cognitive processes, and choosing the wrong one undermines your message before the design work even begins.
 
-> *The guidance in this file is adapted from principles discussed in* Storytelling with Data *by Cole Nussbaumer Knaflic (Wiley, 2015), Chapter 2.*
+> *The table-vs-graph distinction draws on guidance from Stephen Few's* Show Me the Numbers *(Perceptual Edge, 2004) and Cole Nussbaumer Knaflic's* Storytelling with Data *(Wiley, 2015), Chapter 2.*
 
-## 1. When to Use a Table
-Tables are processed through sequential reading — the audience scans row by row to find specific values. This makes them powerful for lookup tasks but poor for showing patterns at a glance.
+## Decision Logic
 
-**Best Use Cases:**
-*   The audience needs to look up precise, individual values.
-*   You are presenting to a mixed audience where individuals will search for their own specific row of interest.
-*   You need to display multiple different units of measure.
+Ask yourself: **Does my audience need to find individual values, or see overall patterns?**
 
-**Table Design Best Practices:**
-*   **Let data take center stage:** The table's visual design should be as invisible as possible so the numbers do the talking.
-*   **Minimize borders:** Replace heavy borders and shading with light separators or white space alone. Visual chrome should never compete with the data.
-*   **Use Heatmaps:** Overlaying color saturation onto a table lets you combine precise values with an at-a-glance sense of magnitude, helping the audience spot highs and lows without reading every cell.
-*   **Avoid in live presentations:** Tables pull your audience into reading mode, which means they stop listening to you. For live settings, prefer a graph or simple text instead.
+*   **Individual values → Table.** Tables engage sequential, verbal processing — the reader scans rows and columns to locate specific numbers. They excel when precision matters more than shape.
+*   **Patterns and comparisons → Graph.** Graphs engage spatial, pre-attentive processing — the viewer perceives trends, clusters, and outliers before reading any labels. They excel when the message lives in the relationships *between* values.
+*   **Neither — just one or two numbers → Simple text.** Not every data point needs a visual container. Display a single metric as large, prominent text with a brief supporting phrase.
 
-## 2. When to Use a Graph
-Graphs are processed visually — the audience perceives shapes, slopes, and relative sizes before consciously reading any numbers. This makes graphs ideal for revealing patterns and comparisons.
+## Table Guidelines
 
-**Best Use Cases:**
-*   The goal is to show the "shape" of the data.
-*   You want to bring patterns, trends, exceptions, and relationships to light.
-*   You have a specific message or narrative that relies on comparing values or seeing changes over time.
+*   Tables work well when readers will look up their own row of interest, or when you need to present values in several different units side by side.
+*   Keep the visual design minimal — light separators or white space instead of heavy borders, no background shading. The data should be the most prominent element.
+*   A color-saturated heatmap overlay can add an at-a-glance sense of magnitude without sacrificing the precision of the underlying numbers.
+*   In live presentations, tables tend to pull the audience into reading mode. Prefer a graph or simple text when you need the audience to listen rather than read.
 
-**When NOT to use a graph:**
-*   **Only one or two numbers:** Having data does not automatically call for a chart. When you only need to share a number or two, display them as large, prominent text with a brief supporting phrase. A graph adds overhead without adding insight in this case.
+## Graph Guidelines
+
+*   Graphs are the right choice when the message depends on comparing values, spotting trends, or revealing the overall distribution of the data.
+*   They are especially effective when you have a specific narrative — a pattern you want the audience to *see* rather than calculate.
+*   Once you have decided on a graph, consult `chart-types.md` to match the data relationship to the appropriate chart form.

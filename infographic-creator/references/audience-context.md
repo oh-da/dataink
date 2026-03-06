@@ -21,10 +21,9 @@ Once you know the *Who* and the *What*, distill your communication down to its e
 * It also tests whether you truly understand the material, independent of any slides or visuals.
 
 ## 4. The Big Idea (Duarte, via Knaflic)
-Compress the 3-minute story even further into a single sentence. This sentence must satisfy three criteria:
-1. It expresses a specific point of view — not a neutral observation, but a position.
-2. It communicates the stakes — why it matters if the audience acts or does not act.
-3. It is a complete sentence — not a topic label or fragment.
+Compress the 3-minute story even further into a single sentence — one that a busy executive could read and immediately understand what you believe and why it matters. Nancy Duarte originated this exercise; Knaflic presents it in *Storytelling with Data* (Ch. 1).
+
+A strong Big Idea sentence takes a clear position ("we should do X"), ties that position to a concrete consequence ("because Y is at risk"), and stands on its own as a complete thought — not a topic label like "Q3 retention trends." If any of these elements is missing, the sentence is too vague to drive action.
 
 *Example:* "Our customer retention rate has dropped 15% this quarter, driven by support response times, and we need to hire three additional agents before Q4 to reverse the trend."
 

@@ -2,7 +2,7 @@
 
 To select the most effective chart, first identify the data relationship you are trying to communicate, then match it to the appropriate visual form.
 
-> *The chart selection guidance and specific design rules below are adapted from Cole Nussbaumer Knaflic's* Storytelling with Data *(Wiley, 2015), Chapter 2. Recommendations against pie charts, 3D graphics, and secondary y-axes reflect a broad consensus in the data visualization field, discussed by Knaflic as well as by Edward Tufte and Stephen Few.*
+> *The seven-category relationship taxonomy (time-series, nominal comparison, ranking, part-to-whole, deviation, distribution, correlation) used to organize this matrix originates in Stephen Few's* Show Me the Numbers *(Perceptual Edge, 2004). Chart selection guidance and specific design rules are also adapted from Cole Nussbaumer Knaflic's* Storytelling with Data *(Wiley, 2015), Chapter 2. Recommendations against pie charts, 3D graphics, and secondary y-axes reflect a broad consensus shared by Few, Knaflic, and Edward Tufte.*
 
 ## 1. Map the Relationship to the Chart
 

@@ -380,6 +380,10 @@ The `data-storyteller` and `infographic-creator` skills are substantially adapte
 
 The `data-visualization` skill also draws on several of these design and chart selection principles.
 
+### Stephen Few — *Show Me the Numbers* (Perceptual Edge, 2004)
+
+The seven-category relationship taxonomy used to organize chart selection in the `data-visualization` skill — time-series, nominal comparison, ranking, part-to-whole, deviation, distribution, and correlation — originates in this work. The color strategy of using muted, natural tones for baseline data and reserving vivid color for emphasis also draws on Few's guidance.
+
 ### Edward Tufte — *The Visual Display of Quantitative Information* (Graphics Press, 1983)
 
 The "data-ink ratio" concept — the principle that the share of a graphic's ink devoted to data should be maximized — originates in this work. The related practices of removing chart borders, background fills, and decorative gridlines are applications of this principle.
