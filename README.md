@@ -1,18 +1,16 @@
 
 # DataInk
 
-AI Skills for Data Communication and Storytelling
+A Claude Code Plugin for Data Communication and Storytelling
 
 > "The greatest value of a picture is when it forces us to notice what we never expected to see."  
 Edward Tufte
 
-DataInk is a collection of modular skills designed to help AI systems produce clear and effective data communication.
+DataInk is a [Claude Code plugin](https://code.claude.com/docs/en/plugins) containing modular skills for clear, effective data communication.
 
-Each skill captures established practices from data visualization, information design, and narrative communication. Instead of repeatedly explaining these practices to an AI system, they are packaged into structured `SKILL.md` workflows.
+Each skill captures established practices from data visualization, information design, and narrative communication, packaged into structured `SKILL.md` workflows that guide Claude through chart design, infographic creation, and narrative construction.
 
-These workflows guide an AI system through chart design, infographic creation, and narrative construction so that every output follows sound communication principles.
-
-Repository:  
+Repository:
 https://github.com/oh-da/dataink.git
 
 ---
@@ -230,35 +228,33 @@ These skills can be used independently or combined.
 
 # Repository Structure
 
-Each skill lives in its own directory with optional `assets` and `references` folders.
+DataInk is structured as a Claude Code plugin. Each skill lives under the `skills/` directory with optional `assets` and `references` folders.
 
 ```
-
 dataink/
-├── infographic-creator/
-│   ├── SKILL.md
-│   ├── assets/
-│   │   ├── brand-colors.md
-│   │   └── brand-fonts.md
-│   └── references/
-│       ├── audience-context.md
-│       └── visual-hierarchy.md
-├── data-visualization/
-│   ├── SKILL.md
-│   ├── assets/
-│   │   ├── brand-colors.md
-│   │   └── brand-fonts.md
-│   └── references/
-│       ├── medium-selection.md
-│       ├── chart-types.md
-│       └── design-principles.md
-└── data-storyteller/
-    ├── SKILL.md
-    └── references/
-        ├── narrative-arc.md
-        ├── flow-and-repetition.md
-        └── logic-validation.md
-
+├── .claude-plugin/
+│   └── plugin.json
+└── skills/
+    ├── data-visualization/
+    │   ├── SKILL.md
+    │   ├── assets/
+    │   │   ├── brand-colors.md
+    │   │   └── brand-fonts.md
+    │   └── references/
+    │       ├── medium-selection.md
+    │       ├── chart-types.md
+    │       └── design-principles.md
+    ├── data-storyteller/
+    │   ├── SKILL.md
+    │   └── references/
+    │       ├── narrative-arc.md
+    │       ├── flow-and-repetition.md
+    │       └── logic-validation.md
+    └── infographic-creator/
+        ├── SKILL.md
+        └── references/
+            ├── audience-context.md
+            └── visual-hierarchy.md
 ```
 
 ---
@@ -287,25 +283,29 @@ The AI loads instructions first and consults assets or references only when nece
 
 # Getting Started
 
-Clone the repository:
+## Install as a Claude Code plugin
+
+Install DataInk from a marketplace, or test it locally:
 
 ```bash
 git clone https://github.com/oh-da/dataink.git
+claude --plugin-dir ./dataink
 ```
 
-Point your AI system to a skill:
+Once installed, the following skills are available:
 
-```
-Follow the instructions in dataink/data-visualization/SKILL.md
-to visualize the attached dataset.
-```
+- `/dataink:visualize` — design effective charts
+- `/dataink:story` — structure data narratives
+- `/dataink:infographic` — create visual summaries
 
-Customize brand assets if needed:
+Claude will also invoke these skills automatically based on task context.
 
-```
-assets/brand-colors.md
-assets/brand-fonts.md
-```
+## Customize brand assets
+
+Edit the brand asset files to match your organization:
+
+- `skills/data-visualization/assets/brand-colors.md`
+- `skills/data-visualization/assets/brand-fonts.md`
 
 ---
 
@@ -343,10 +343,10 @@ Contributions are welcome.
 
 To add a new skill:
 
-1. Create a directory  
-2. Add a `SKILL.md`  
-3. Include references if needed  
-4. Add assets for brand customization  
+1. Create a directory under `skills/`
+2. Add a `SKILL.md` with frontmatter (`name`, `description`, `metadata`)
+3. Include references if needed
+4. Add assets for brand customization
 
 ---
 

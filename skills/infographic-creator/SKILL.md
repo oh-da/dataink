@@ -1,5 +1,5 @@
 ---
-name: infographic-creator
+name: infographic
 description: Guides the design, layout, color strategy, and narrative structure of informative infographics. Use when the user asks to "create an infographic", "design an infographic", "visualize these facts", or "apply brand guidelines to an infographic".
 metadata:
   author: Ohad Dahan
