@@ -283,14 +283,23 @@ The AI loads instructions first and consults assets or references only when nece
 
 # Getting Started
 
-## Install as a Claude Code plugin
+## Install from the marketplace
 
-Install DataInk from a marketplace, or test it locally:
+In Claude Code, run:
+
+```
+/plugin marketplace add oh-da/dataink
+/plugin install dataink@dataink
+```
+
+## Install locally for development
 
 ```bash
 git clone https://github.com/oh-da/dataink.git
 claude --plugin-dir ./dataink
 ```
+
+## Available skills
 
 Once installed, the following skills are available:
 
