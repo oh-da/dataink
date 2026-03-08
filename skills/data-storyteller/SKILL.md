@@ -1,9 +1,6 @@
 ---
 name: story
 description: Guides the narrative structure, flow, and logic of a data-driven presentation or report. Use when the user asks to "tell a story with this data", "structure my presentation", "outline my slide deck", or "improve my narrative flow".
-metadata:
-  author: Ohad Dahan
-  version: 1.1.0
 ---
 
 # Data Storytelling Expert
