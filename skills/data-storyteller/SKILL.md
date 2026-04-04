@@ -1,58 +1,77 @@
 ---
-name: story
-description: Guides the narrative structure, flow, and logic of a data-driven presentation or report. Use when the user asks to "tell a story with this data", "structure my presentation", "outline my slide deck", or "improve my narrative flow".
+name: storytelling-with-data
+description: Structures the narrative arc, flow, and logic of data-driven presentations and reports. Use when building slide decks, structuring executive summaries, creating persuasive arguments from data, outlining reports, framing decisions, or improving narrative flow and presentation structure.
 ---
 
 # Data Storytelling Expert
 
-> *This skill is adapted from narrative and structural techniques described in Cole Nussbaumer Knaflic's* Storytelling with Data *(Wiley, 2015). Several concepts originate with other authors and are credited inline. See individual reference files for detailed attributions.*
-
 -# Performance Notes
 - Do not start by choosing charts; always start by defining the story's structure.
-- The story is not about the data; the story is about the audience.
+- The story is about the audience, not the data.
 
-## CRITICAL CONSTRAINTS
-- The audience **MUST** be treated as the main character (the protagonist) of the story — a framing Knaflic attributes to Nancy Duarte's *Resonate* (Wiley, 2010).
-- Every story **MUST** have a clear call to action; do not just present data and leave the audience to draw their own conclusions.
-- Every slide or section **MUST** use an action title, not a descriptive title.
+The user's request: "$ARGUMENTS"
+
+## Critical Constraints
+- The audience **must** be the protagonist — the main character whose problem the story resolves.
+- Every story **must** end with a clear, specific call to action.
+- Every slide or section **must** use an **action title** (states the insight) not a descriptive title (states the topic).
+- **Integrity:** Present data honestly. Annotate uncertainty. Disclose metric definitions. Do not frame correlation as causation.
+
+## Workflow Checklist
+
+Copy and track progress:
+
+```
+- [ ] Step 0: Capture context (audience, medium, goal, constraints)
+- [ ] Step 1: Define the audience and the tension
+- [ ] Step 2: Construct the three-act narrative arc
+- [ ] Step 3: Determine narrative flow and repetition strategy
+- [ ] Step 4: Validate logic — horizontal, vertical, reverse storyboard
+```
 
 ## Instructions
 
+### Step 0: Capture Context
+Before designing the narrative, gather these inputs:
+- **Audience:** Who will consume this? (exec, technical, public, mixed)
+- **Medium:** How will it be delivered? (live presentation, written report, circulated deck, dashboard)
+- **Goal:** What should happen after? (decide, approve, invest, change behavior)
+- **Time available:** How long does the audience have? (determines flow choice in Step 3)
+- **Key takeaway:** Can you state the "Big Idea" in one sentence? If not, refine before proceeding.
+
 ### Step 1: Define the Audience and the Tension
 Identify the protagonist (the audience) and the specific problem they face.
-- Establish the gap between the current situation and the desired outcome — what Nancy Duarte calls the tension between "what is" and "what could be" — so the audience has a stake in the resolution.
+- Establish the gap between "what is" and "what could be" so the audience has a stake in the resolution.
+- Consult `references/narrative-arc.md` for the setup framework.
 
-### Step 2: Construct the Three-Act Story Arc
-Organize the communication into a clear beginning, middle, and end.
-- **The Beginning:** Set the stage, introduce the problem (the imbalance), and answer "Why should I pay attention?"
-- **The Middle:** Use data as supporting evidence to develop the problem, explore options, and build the case for your proposed solution.
-- **The End:** Close with a clear, specific call to action.
-*Consult `references/narrative-arc.md` for specific questions to answer in each act.*
+### Step 2: Construct the Three-Act Narrative Arc
+Organize into beginning, middle, and end:
+- **Beginning:** Context, protagonist, what's at stake.
+- **Middle:** Cost of inaction + payoff of acting, supported by data.
+- **End:** Circle back to setup, state the explicit call to action.
+- Consult `references/narrative-arc.md` for specific questions to answer in each act.
 
-### Step 3: Determine the Narrative Flow and Repetition
-Decide on the sequence in which you will present your argument.
-- Choose between a **Chronological Flow** (to build credibility by walking through the analytical process) or **Leading with the Ending** (Knaflic) for a time-constrained audience that primarily needs the conclusion.
-- Reinforce the message using the **"Bing, Bang, Bongo"** repetition structure (Knaflic): preview what you will cover, present the detail, then recap and restate the call to action.
-*Consult `references/flow-and-repetition.md` for execution details.*
+### Step 3: Determine Narrative Flow and Repetition
+Choose the presentation sequence based on context from Step 0:
+- **Chronological:** Walk through the analysis process — use when building credibility with a new audience.
+- **Lead with the Ending:** Open with the recommendation — use when the audience is time-constrained or already trusts your work.
+- Reinforce with the **"Bing, Bang, Bongo"** structure: preview → detail → recap.
+- Consult `references/flow-and-repetition.md` for execution details.
 
-### Step 4: Validate the Story using Logic Checks (Knaflic)
-Test the structure to ensure the message is clear.
-- **Horizontal Logic:** Reading only the action titles of each slide/section should tell a coherent, complete story on its own.
-- **Vertical Logic:** Every element on a single page should directly support that page's title — and nothing else.
-- **Reverse Storyboarding:** Write down the main point of each finished page and compare the list against your original outline to spot structural gaps.
-*Consult `references/logic-validation.md` for troubleshooting logic errors.*
+### Step 4: Validate the Story
+Test the structure using logic checks:
+- **Horizontal Logic:** Read only the action titles in sequence — do they tell a complete, coherent story?
+- **Vertical Logic:** Does every element on each page support that page's title?
+- **Reverse Storyboarding:** Write the takeaway from each page and compare against the original outline.
+- **If validation fails:** return to Step 2 and restructure the narrative arc before proceeding.
+- Consult `references/logic-validation.md` for troubleshooting.
 
 ## Examples
 
 **Example 1: Structuring a Presentation**
-* **User says:** "I have a lot of data showing our new product is doing well, but marketing spend is too high. Help me turn this into a slide deck for the executives."
-* **Actions:** 
-    1. Apply CRITICAL constraint: Ensure the executives are the hero and there is a specific call to action (e.g., "Reallocate $50k from marketing to product development").
-    2. Draft the three acts: Beginning (Product success), Middle (Tension: High marketing costs are eating margins, shown via data), End (Call to action).
-    3. Apply Horizontal Logic: Generate a list of 5-7 slide action titles that read as a cohesive paragraph.
-2. The references/ Folder Files
-These files provide detailed guidance adapted from established storytelling and visualization practices. See each file for full attributions.
-
-references/narrative-arc.md — *Adapted from Knaflic (2015), with framing credited to Atkinson and Duarte.*
-references/flow-and-repetition.md — *Adapted from Knaflic (2015). Sound bites concept attributed to Duarte.*
-references/logic-validation.md — *Horizontal Logic, Vertical Logic, and Reverse Storyboarding are techniques from Knaflic (2015).*
+- **User says:** "I have data showing our new product does well but marketing spend is too high. Help me make a slide deck for executives."
+- **Actions:**
+  1. Context: execs, live presentation, goal is budget reallocation, time-constrained → lead with ending.
+  2. Big Idea: "Reallocating $50k from marketing to product development will sustain growth while cutting acquisition costs 30%."
+  3. Three acts: Setup (product success), Middle (tension — high marketing costs eating margins), End (call to action).
+  4. Horizontal Logic: draft 5-7 action titles that read as a coherent paragraph.

@@ -1,67 +1,97 @@
 ---
-name: infographic
-description: Guides the design, layout, color strategy, and narrative structure of informative infographics. Use when the user asks to "create an infographic", "design an infographic", "visualize these facts", or "apply brand guidelines to an infographic".
+name: creating-infographics
+description: Designs the layout, color strategy, and narrative structure of data-driven infographics. Use when creating infographics, designing visual summaries, combining multiple data points into a single visual, applying brand guidelines to informational graphics, or building one-page data reports.
 ---
 
 # Infographic Creator
 
-> *This skill draws on data visualization principles from Edward Tufte's* The Visual Display of Quantitative Information *(Graphics Press, 1983) and narrative/design techniques from Cole Nussbaumer Knaflic's* Storytelling with Data *(Wiley, 2015). The "3-minute story" framework is Knaflic's; the 10% highlighting guideline originates in Lidwell, Holden, and Butler's* Universal Principles of Design *(Rockport, 2003). See reference files for detailed attributions.*
-
 -# Performance Notes
 - Take your time to do this thoroughly.
 - Quality and accuracy are more important than speed.
-- Do not skip the context evaluation, storyboarding, or brand-checking steps.
+- Do not skip context evaluation, storyboarding, or brand-checking steps.
 
-## CRITICAL CONSTRAINTS
-- **AVOID** "fluffy" designs, garish oversized numbers, or cartoonish graphics. Infographics must have substance and actually inform the audience.
-- An infographic is **NOT** a disjointed collection of facts; it **MUST** tell a cohesive, structured story.
-- **NEVER** recommend 3D graphics, Pie Charts, Donut Charts, or secondary y-axes.
+The user's request: "$ARGUMENTS"
+
+## Critical Constraints
+- An infographic **must** tell a cohesive, structured story — not a disjointed collection of facts.
+- **Avoid** fluffy designs, garish oversized numbers, or cartoonish graphics. Infographics must inform.
+- **Never** use 3D graphics or secondary y-axes.
+- **Avoid** pie/donut charts. If the user insists, limit to ≤5 slices with direct labels.
+- **Accessibility:** Never rely on color alone. Ensure WCAG AA contrast (4.5:1 text, 3:1 non-text). Use CVD-safe palettes by default.
+- **Integrity:** Define metrics clearly. Annotate uncertainty. Do not imply causation from correlation.
+- **Memorability tradeoff:** For public-facing infographics where recall matters more than precision, selective embellishment (icons, distinctive forms) is acceptable — but data encoding must remain accurate and unambiguous.
+
+## Workflow Checklist
+
+Copy and track progress:
+
+```
+- [ ] Step 1: Understand context and storyboard
+- [ ] Step 2: Choose displays and maximize data-ink
+- [ ] Step 3: Apply branding and color strategy
+- [ ] Step 4: Focus attention, apply text and annotations
+- [ ] Step 5: Accessibility check
+- [ ] Step 6: Validation
+- [ ] Step 7: Generate output
+```
 
 ## Instructions
 
-### Step 1: Understand the Context and Storyboard
-Before choosing charts or colors, articulate the "3-minute story" (Knaflic) — the concise narrative boiling down the "so-what". 
-- Create a visual outline (storyboard) with a clear beginning (setup), middle (data evidence), and end (takeaway).
-- Group related facts into "chunks" to avoid overwhelming the audience.
+### Step 1: Understand Context and Storyboard
+Before choosing charts or colors, articulate the "3-minute story" — the concise narrative distilling the "so-what."
+- Create a visual outline (storyboard) with a clear beginning, middle, and end.
+- Group related facts into chunks to avoid overwhelming the audience.
+- Consult `references/audience-context.md` for the context-capture framework.
 
-### Step 2: Choose Displays & Maximize Data-Ink
-- Select appropriate charts: Simple Text for 1-2 key numbers, Bar Charts (zero baseline) for categorical comparisons, Line Graphs for continuous trends.
-- Strip away clutter: Remove chart borders, background shading, heavy gridlines, and diagonal text.
+### Step 2: Choose Displays and Maximize Data-Ink
+- Select appropriate displays: Simple Text for 1-2 key numbers, Bar Charts (zero baseline) for comparisons, Line Graphs for trends.
+- Strip clutter: remove borders, background shading, heavy gridlines, diagonal text.
+- For public-facing infographics: allow recognizable icons and selective embellishment that aid memorability, but ensure data encodings (bar lengths, positions, line slopes) remain accurate.
 
 ### Step 3: Apply Branding and Color Strategy
-Before applying colors and typography, check for the presence of brand guidelines.
-
-* **Check for Brand Assets:** Look for `assets/brand-colors.md` and `assets/brand-fonts.md`. 
-    * **If they exist:** Strictly utilize the specified brand typography and color palette. 
-    * **If they do not exist:** Continue without them, defaulting to standard clean typography (like Arial or sans-serif) and a standard color palette (grey baseline with blue highlights).
-
-* **Apply Color Best Practices:**
-    1. **Highlight Strategically (The 10% Guideline — Lidwell et al.):** Identify 1-2 brand-appropriate colors to serve as "audience-look-here" cues. Reserve highlighting for at most 10% of the visual surface so the effect is not diluted.
-    2. **Mute the Baseline:** Keep the remainder of the chart muted. Standardize on soft, natural colors (like light grey) to push non-essential data to the background.
-    3. **Ensure Sufficient Contrast:** If the primary brand color is too light or washes out the visual, deviate slightly by using bold black or a complementary color to draw attention, provided it does not clash with the brand's logo.
-    4. **Account for Dark Templates:** If the brand mandates a dark or black background, reverse the contrast rules: black becomes the baseline, grey stands out less, and white or bright colors (like yellow) become the highly attention-grabbing highlight colors.
+Check for brand assets before applying colors:
+- **Look for** `../../assets/brand-colors.md` and `../../assets/brand-fonts.md`.
+  - **If found:** Use the defined brand palette.
+  - **If not found:** Default to clean sans-serif typography and grey baseline with blue highlights. Use CVD-safe palettes from `../../assets/accessible-palettes.md`.
+- **10% rule:** Highlight at most 10% of the visual surface.
+- **Mute the baseline:** Soft, neutral colors for non-essential elements.
+- **Contrast:** If the brand color is too light on the background, use bold black or a complementary dark color instead.
+- **Dark backgrounds:** Reverse the contrast rules — black baseline, white/bright highlights.
 
 ### Step 4: Focus Attention and Apply Text
-- Use preattentive attributes (color, size, spatial position) to guide the audience's eyes through the storyboard.
-- Ensure every chart has an action title.
-- Explicitly annotate key insights right next to the data.
+- Use preattentive attributes (color, size, position) to guide the audience through the storyboard.
+- Every chart gets an **action title** (states the insight).
+- Annotate key data points directly next to the data.
+- Structure as panels: 1 insight per panel, consistent margins, icon slot, caption slot.
+
+### Step 5: Accessibility Check
+- Verify color is not the sole differentiator — add labels, patterns, or markers.
+- Check contrast ratios: 4.5:1 for text, 3:1 for data marks.
+- For web output: draft alt text for each visual panel.
+- Consult `../../assets/accessible-palettes.md` if the palette is not CVD-safe.
+
+### Step 6: Validation
+Run the "where are your eyes drawn?" test on each panel and the infographic as a whole.
+- **If gaze hits the intended focal point:** proceed.
+- **If not:** return to Step 4 — reduce competing elements, strengthen the focal point, and re-check.
+
+### Step 7: Generate Output
+Produce the infographic in the user's preferred format, applying all design decisions from prior steps.
 
 ## Examples
 
-**Example 1: Designing an infographic with a light brand color**
-* **User says:** "Turn these 5 regional sales stats into an infographic. Use our brand files."
-* **Actions:** 
-    1. Verify `assets/brand-colors.md` exists. (Result: Found. Primary brand color is light yellow; background is white).
-    2. Apply Contrast Rule: Since light yellow on a white background lacks sufficient contrast, use a bold black or a complementary dark brand color for the data highlights instead. 
-    3. Make all baseline bars light grey.
-    4. Ensure the charts flow in a cohesive narrative rather than just a random list.
+**Example 1: Infographic with a light brand color**
+- **User says:** "Turn these 5 regional sales stats into an infographic. Use our brand files."
+- **Actions:**
+  1. Check `../../assets/brand-colors.md` — found, primary is light yellow on white.
+  2. Contrast problem: use bold black for highlights instead of light yellow.
+  3. Grey baseline bars, cohesive narrative flow, action titles per panel.
+  4. Accessibility: verify contrast ratios, add redundant encoding.
 
 ## Troubleshooting
 
-**Error: User requests "make it look cool with 3D elements and lots of graphics."**
-* **Cause:** The user believes aesthetic dazzle equals a better infographic.
-* **Solution:** Politely advise that while aesthetics matter, 3D graphics physically skew numbers. Suggest using strategic brand colors, clean alignment, and high-quality typography to achieve a professional, aesthetic design instead.
+**"Make it cool with 3D elements and lots of graphics":**
+Advise that 3D skews data. Suggest strategic brand colors, clean alignment, and quality typography instead.
 
-**Error: The visual feels overwhelming and chaotic.**
-* **Cause:** Too much of the infographic is highlighted.
-* **Solution:** Revert to the 10% rule. Push more elements to the muted baseline color (grey) and ensure only the single most important data point in each section uses the brand's highlight color.
+**Overwhelming and chaotic:**
+Revert to the 10% rule. Push more to muted baseline. Only the single most important data point per section gets the highlight color.

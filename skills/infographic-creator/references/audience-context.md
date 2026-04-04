@@ -1,35 +1,20 @@
 # Audience and Context Evaluation
 
-Success in data visualization does not start with the visualization itself; it starts with a deep understanding of the situational context. Before generating any infographic or chart, you must be able to clearly articulate exactly who you are communicating to and what you want them to know or do.
+Before designing any infographic, articulate who you are communicating to and what you want them to do.
 
-> *The "3-Minute Story" and "Big Idea" frameworks referenced below were developed by Cole Nussbaumer Knaflic, drawing on work by Nancy Duarte. They are described in* Storytelling with Data *(Wiley, 2015), Chapter 1. The approach to audience identification also draws on Knaflic's framework.*
+## Context Capture
 
-## 1. WHO is your audience?
-The more specific you can be about your audience, the better positioned you will be to communicate effectively.
-* **Avoid general audiences:** Targeting "anyone who might be interested" dilutes your message. A communication designed for everyone effectively reaches no one.
-* **Identify the decision-maker:** Narrow your focus to the specific person or group who can act on your recommendation.
-* **Consider the relationship:** Do they already trust your expertise, or do you need to build credibility first? This shapes how much supporting evidence you need and whether you can lead with your conclusion.
+1. **WHO:** Identify the specific decision-maker. Avoid "general audience" — a message for everyone reaches no one.
+2. **WHAT:** Define the action you want. Use strong verbs: accept, approve, invest, implement, change.
+3. **3-Minute Story:** Distill the entire narrative aloud in under 3 minutes. This separates essential from merely interesting.
+4. **Big Idea:** Compress to one sentence that takes a clear position ("we should do X"), ties it to a consequence ("because Y is at risk"), and stands alone as a complete thought.
 
-## 2. WHAT do you need them to know or do?
-You should always want your audience to know or do something; if you cannot concisely articulate this, reconsider whether you need to communicate at all.
-* **Recommend an action:** As the analyst, you are closest to the data and best positioned to interpret it. Offer a clear recommendation rather than leaving the audience to draw their own conclusions.
-* **Prompting words:** Use strong action verbs to define your goal (e.g., *accept, agree, change, defend, implement, invest, persuade, support*).
+*Example:* "Our retention rate dropped 15% this quarter due to support response times — we need 3 additional agents before Q4 to reverse the trend."
 
-## 3. The 3-Minute Story (Knaflic)
-Once you know the *Who* and the *What*, distill your communication down to its essence. Challenge yourself to explain the entire narrative aloud in three minutes or less.
-* This forces you to separate what is essential from what is merely interesting.
-* It also tests whether you truly understand the material, independent of any slides or visuals.
+## Questions Before Designing
 
-## 4. The Big Idea (Duarte, via Knaflic)
-Compress the 3-minute story even further into a single sentence — one that a busy executive could read and immediately understand what you believe and why it matters. Nancy Duarte originated this exercise; Knaflic presents it in *Storytelling with Data* (Ch. 1).
-
-A strong Big Idea sentence takes a clear position ("we should do X"), ties that position to a concrete consequence ("because Y is at risk"), and stands on its own as a complete thought — not a topic label like "Q3 retention trends." If any of these elements is missing, the sentence is too vague to drive action.
-
-*Example:* "Our customer retention rate has dropped 15% this quarter, driven by support response times, and we need to hire three additional agents before Q4 to reverse the trend."
-
-## Questions to Ask for Context
-If you are designing an infographic based on someone else's request, ask these questions to surface the necessary context before you begin storyboarding:
-* Who is the decision maker and what do we know about them?
-* What biases does our audience have that might make them resistant to our message?
-* What data is available to strengthen our case, and is the audience already familiar with it?
-* What would a successful outcome look like?
+- Who is the decision maker and what do we know about them?
+- What biases might make them resistant to our message?
+- What data strengthens the case, and is the audience already familiar with it?
+- What does a successful outcome look like?
+- Do they trust our expertise, or do we need to build credibility first? (This shapes whether to lead with the conclusion or build up to it.)

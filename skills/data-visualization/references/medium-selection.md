@@ -1,26 +1,19 @@
 # Medium Selection: Table vs. Graph
 
-Before selecting a specific chart type, decide whether your data belongs in a table or a graph. The two mediums engage different cognitive processes, and choosing the wrong one undermines your message before the design work even begins.
-
-> *The table-vs-graph distinction draws on guidance from Stephen Few's* Show Me the Numbers *(Perceptual Edge, 2004) and Cole Nussbaumer Knaflic's* Storytelling with Data *(Wiley, 2015), Chapter 2.*
+Before choosing a chart type, determine the right medium.
 
 ## Decision Logic
 
-Ask yourself: **Does my audience need to find individual values, or see overall patterns?**
-
-*   **Individual values → Table.** Tables engage sequential, verbal processing — the reader scans rows and columns to locate specific numbers. They excel when precision matters more than shape.
-*   **Patterns and comparisons → Graph.** Graphs engage spatial, pre-attentive processing — the viewer perceives trends, clusters, and outliers before reading any labels. They excel when the message lives in the relationships *between* values.
-*   **Neither — just one or two numbers → Simple text.** Not every data point needs a visual container. Display a single metric as large, prominent text with a brief supporting phrase.
+- **Individual values needed → Table.** Reader scans rows/columns for specific numbers. Best when precision matters.
+- **Patterns and comparisons → Graph.** Viewer perceives trends, clusters, outliers pre-attentively. Best when the message is in the relationships.
+- **Just 1-2 numbers → Simple text.** Display prominently with a supporting phrase. No chart wrapper needed.
 
 ## Table Guidelines
-
-*   Tables work well when readers will look up their own row of interest, or when you need to present values in several different units side by side.
-*   Keep the visual design minimal — light separators or white space instead of heavy borders, no background shading. The data should be the most prominent element.
-*   A color-saturated heatmap overlay can add an at-a-glance sense of magnitude without sacrificing the precision of the underlying numbers.
-*   In live presentations, tables tend to pull the audience into reading mode. Prefer a graph or simple text when you need the audience to listen rather than read.
+- Minimal design: light separators or white space, no heavy borders or background shading.
+- Optional heatmap overlay for at-a-glance magnitude without losing precision.
+- Avoid in live presentations — tables pull audiences into reading mode.
 
 ## Graph Guidelines
-
-*   Graphs are the right choice when the message depends on comparing values, spotting trends, or revealing the overall distribution of the data.
-*   They are especially effective when you have a specific narrative — a pattern you want the audience to *see* rather than calculate.
-*   Once you have decided on a graph, consult `chart-types.md` to match the data relationship to the appropriate chart form.
+- Right choice when the message depends on comparing, trending, or distributing.
+- Especially effective when you have a specific narrative the audience should *see*.
+- Proceed to `chart-types.md` to match the data relationship to chart form.
