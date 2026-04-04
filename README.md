@@ -3,19 +3,16 @@
 
 A Claude Code Plugin for Data Communication and Storytelling
 
-> "The greatest value of a picture is when it forces us to notice what we never expected to see."  
-Edward Tufte
+> "The greatest value of a picture is when it forces us to notice what we never expected to see."
+> — Edward Tufte
 
 DataInk is a [Claude Code plugin](https://code.claude.com/docs/en/plugins) containing modular skills for clear, effective data communication.
 
 Each skill captures established practices from data visualization, information design, and narrative communication, packaged into structured `SKILL.md` workflows that guide Claude through chart design, infographic creation, dashboard layout, visualization review, and narrative construction.
 
-Repository:
-https://github.com/oh-da/dataink.git
-
 ---
 
-# Why DataInk
+## Why DataInk
 
 Many data visualizations fail not because the data is incorrect but because the communication is weak.
 
@@ -31,29 +28,68 @@ DataInk addresses these issues by encoding expert workflows into reusable AI ski
 
 ---
 
-# DataInk Workflow
+## Getting Started
+
+### Install from the marketplace
+
+In Claude Code, run:
+
+```
+/plugin marketplace add oh-da/dataink
+/plugin install dataink@dataink
+```
+
+### Install locally for development
+
+```bash
+git clone https://github.com/oh-da/dataink.git
+claude --plugin-dir ./dataink
+```
+
+### Available skills
+
+Once installed, the following skills are available:
+
+| Skill | Command | Purpose |
+|-------|---------|---------|
+| Visualizing Data | `/dataink:visualizing-data` | Design effective, accessible charts |
+| Storytelling with Data | `/dataink:storytelling-with-data` | Structure data narratives |
+| Creating Infographics | `/dataink:creating-infographics` | Create visual summaries |
+| Reviewing Visualizations | `/dataink:reviewing-visualizations` | Critique and improve existing charts |
+| Designing Dashboards | `/dataink:designing-dashboards` | Design dashboard layouts |
+
+Claude will also invoke these skills automatically based on task context.
+
+### Customize brand assets
+
+Edit the brand asset files to match your organization:
+
+- `assets/brand-colors.md` — define your highlight and baseline colors
+- `assets/brand-fonts.md` — define your typefaces and size hierarchy
+
+---
+
+## Workflow
 
 The skills can be used independently or combined into a full communication workflow.
 
 ```mermaid
 flowchart LR
 
-A[Raw Data or Analysis] --> B[Visualization Expert]
+A[Raw Data or Analysis] --> B[Visualizing Data]
 
 B --> C[Clear Individual Charts]
 
-C --> D[Infographic Creator]
-
+C --> D[Creating Infographics]
 D --> E[Structured Visual Summary]
 
-E --> F[Data Storyteller]
-
+E --> F[Storytelling with Data]
 F --> G[Presentation or Report]
 
-C --> H[Visualization Review]
+C --> H[Reviewing Visualizations]
 H --> C
 
-C --> I[Dashboard Design]
+C --> I[Designing Dashboards]
 I --> J[Dashboard]
 
 style B fill:#d4f4dd
@@ -63,230 +99,106 @@ style H fill:#f4f4d4
 style I fill:#e4d4f4
 ```
 
-### Data Visualization Expert
+### Visualizing Data
 
 Transforms raw data into clear, accessible charts.
 
-- choose appropriate chart type based on data relationship
-- remove clutter and maximize data-ink ratio
-- apply brand colors and accessible palettes
-- validate with the "eyes drawn" test
+- Select chart type based on data relationship (7-category taxonomy + extended matrix)
+- Remove clutter and maximize data-ink ratio
+- Apply brand colors and CVD-safe accessible palettes
+- Validate with the "eyes drawn" test
+- Check WCAG AA contrast and redundant encoding
 
-Output: clear, accessible charts.
-
----
-
-### Infographic Creator
+### Creating Infographics
 
 Combines insights into a visual summary with narrative structure.
 
-- storyboard with beginning, middle, end
-- panel-based layout with consistent design
-- brand and accessibility compliance
-- context-sensitive data-ink (analytic vs. memorability)
+- Storyboard with beginning, middle, end ("3-minute story")
+- Panel-based layout with consistent design
+- Brand and accessibility compliance
+- Context-sensitive data-ink (strict for analytic, flexible for memorability)
 
-Output: structured infographic.
-
----
-
-### Data Storyteller
+### Storytelling with Data
 
 Builds a narrative around the visuals.
 
-- structured context capture (audience, medium, goal)
-- three-act narrative arc
-- logic validation (horizontal, vertical, reverse storyboard)
-- flow strategy (chronological vs. lead with ending)
+- Structured context capture (audience, medium, goal, time available)
+- Three-act narrative arc with tension and call to action
+- Logic validation (horizontal, vertical, reverse storyboard)
+- Flow strategy (chronological vs. lead with ending)
 
-Output: presentation or report.
-
----
-
-### Visualization Review (NEW)
+### Reviewing Visualizations
 
 Critiques existing visualizations against a prioritized rule system.
 
-- P0: correctness, integrity, accessibility (blocking)
-- P1: perception, cognitive load, narrative (strong warnings)
-- P2: style, consistency, polish (suggestions)
+- **P0 (must-fix):** correctness, integrity, accessibility — chart-task mismatch, misleading scales, color-only encoding, contrast failures, missing alt text
+- **P1 (strong warning):** perception, cognitive load, narrative — low-precision encodings, overplotting, no clear takeaway, legend dependence
+- **P2 (polish):** style, consistency — inconsistent tokens, excess non-data ink, palette misuse
 
-Output: prioritized report with specific fix recommendations.
-
----
-
-### Dashboard Design (NEW)
+### Designing Dashboards
 
 Designs effective dashboard layouts.
 
-- KPI hierarchy and component selection
-- attention choreography (what the eye sees first, second, third)
-- layout templates (executive summary, operational monitor, comparison)
+- KPI hierarchy and component selection (tiles, sparklines, bullet graphs, heatmaps)
+- Attention choreography (what the eye sees first, second, third)
+- Layout templates (executive summary, operational monitor, comparison)
 - 5-second validation test
 
-Output: dashboard layout or code.
+---
+
+## Use Cases
+
+### Business reporting
+
+Quarterly performance, strategy updates, board reports, KPI dashboards.
+
+Recommended: `visualizing-data` → `storytelling-with-data`
+
+### Dashboard and chart design
+
+Redesign cluttered dashboards, choose chart types, remove visual noise, review existing charts.
+
+Recommended: `visualizing-data` → `designing-dashboards` (or `reviewing-visualizations` for existing work)
+
+### Data storytelling and presentations
+
+Product analytics, marketing reviews, operations reports, research presentations.
+
+Recommended: `storytelling-with-data`
+
+### Infographics and visual reports
+
+Annual reports, research summaries, educational visualizations, policy reports.
+
+Recommended: `creating-infographics`
+
+### Visualization audit and improvement
+
+Review charts before publishing, check accessibility compliance, identify anti-patterns.
+
+Recommended: `reviewing-visualizations`
 
 ---
 
-# Use Cases
+## Design Philosophy
 
-DataInk is useful whenever data must be communicated clearly.
+DataInk is built on the idea that data visualization is a communication discipline. The workflows translate established principles into repeatable steps that an AI system can follow.
 
-## Business reporting
+**Communication before visualization** — Before selecting a chart type, answer: who is the audience, what decision must be made, what insight matters most. Workflows begin with narrative framing.
 
-Examples:
+**Explanatory analysis** — Exploratory analysis discovers insights. Explanatory analysis communicates them. These workflows focus on explanatory communication.
 
-- quarterly performance presentations
-- strategy updates
-- board reports
-- KPI dashboards
+**Visual simplicity (context-sensitive)** — Maximize the data-ink ratio for analytic charts. Allow selective embellishment for public-facing infographics where memorability matters. Highlight at most 10% of the visual surface.
 
-Recommended workflow:
+**Accessibility by default** — Every visualization should be perceivable without relying on color alone, meeting WCAG AA contrast requirements, using CVD-safe palettes, and including text alternatives when appropriate.
 
-visualizing-data → storytelling-with-data
+**Narrative structure** — Data becomes persuasive as part of a narrative: setup → conflict → resolution.
 
----
-
-## Dashboard and chart design
-
-Examples:
-
-- redesign cluttered dashboards
-- choose the correct chart type
-- remove visual noise
-- review existing charts for issues
-
-Recommended workflow:
-
-visualizing-data (or reviewing-visualizations for existing work) → designing-dashboards
+**Modular workflows** — Each skill focuses on one communication task. Use independently or combine.
 
 ---
 
-## Data storytelling and presentations
-
-Examples:
-
-- product analytics presentations
-- marketing performance reviews
-- operations reports
-- research presentations
-
-Recommended workflow:
-
-storytelling-with-data
-
----
-
-## Infographics and visual reports
-
-Examples:
-
-- annual reports
-- research summaries
-- educational visualizations
-- policy reports
-
-Recommended workflow:
-
-creating-infographics
-
----
-
-## Visualization audit and improvement
-
-Examples:
-
-- review a team's charts before publishing
-- check accessibility compliance
-- identify anti-patterns in existing dashboards
-- improve chart effectiveness
-
-Recommended workflow:
-
-reviewing-visualizations
-
----
-
-# Design Philosophy
-
-DataInk is built on the idea that data visualization is a communication discipline.
-
-Charts often fail because they prioritize visual decoration instead of clarity and narrative structure. Effective data communication requires understanding the audience, identifying the key insight, and presenting information in a way that guides attention — accessibly.
-
-The workflows in this repository translate these principles into repeatable steps that an AI system can follow.
-
-## Communication before visualization
-
-Before selecting a chart type, it is important to answer:
-
-- Who is the audience
-- What decision must be made
-- What insight matters most
-
-For this reason the workflows begin with narrative framing.
-
----
-
-## Explanatory analysis
-
-Exploratory analysis helps analysts discover insights.
-
-Explanatory analysis communicates those insights to others.
-
-The workflows in this repository focus on explanatory communication by removing unnecessary analysis and highlighting the insights that matter.
-
----
-
-## Visual simplicity (context-sensitive)
-
-Effective charts:
-
-- maximize the data ink ratio (strictly for analytic charts, with flexibility for public-facing infographics where memorability matters)
-- remove unnecessary visual elements
-- highlight only a small portion of the visual (10% rule)
-- guide the viewer's attention
-
----
-
-## Accessibility by default
-
-Every visualization should be:
-
-- perceivable without relying on color alone
-- meeting WCAG AA contrast requirements
-- using CVD-safe color palettes
-- including text alternatives for screen readers when appropriate
-
----
-
-## Narrative structure
-
-Data becomes persuasive when presented as part of a narrative.
-
-The storytelling workflows follow a simple structure:
-
-1. Setup
-2. Conflict
-3. Resolution
-
----
-
-## Modular workflows
-
-Each skill focuses on a specific communication task.
-
-- **visualizing-data** helps design charts
-- **creating-infographics** helps build visual summaries
-- **storytelling-with-data** helps structure narratives
-- **reviewing-visualizations** critiques existing work
-- **designing-dashboards** helps build dashboard layouts
-
-These skills can be used independently or combined.
-
----
-
-# Repository Structure
-
-DataInk is structured as a Claude Code plugin. Each skill lives under the `skills/` directory with optional `references` folders. Shared brand assets live at the plugin root.
+## Repository Structure
 
 ```
 dataink/
@@ -314,22 +226,20 @@ dataink/
     │   └── references/
     │       ├── audience-context.md
     │       └── visual-hierarchy.md
-    ├── visualization-review/        # NEW
+    ├── visualization-review/
     │   ├── SKILL.md
     │   └── references/
     │       ├── p0-rules.md
     │       ├── p1-rules.md
     │       └── p2-rules.md
-    └── dashboard-design/            # NEW
+    └── dashboard-design/
         ├── SKILL.md
         └── references/
             ├── kpi-components.md
             └── layout-patterns.md
 ```
 
----
-
-# Skill Architecture
+### Skill Architecture
 
 ```mermaid
 flowchart TD
@@ -350,60 +260,21 @@ E --> K[Review Rules P0/P1/P2]
 E --> L[Dashboard Patterns]
 ```
 
-The AI loads instructions first and consults assets or references only when necessary.
+The AI loads instructions first and consults assets or references only when necessary (progressive disclosure).
 
 ---
 
-# Getting Started
-
-## Install from the marketplace
-
-In Claude Code, run:
-
-```
-/plugin marketplace add oh-da/dataink
-/plugin install dataink@dataink
-```
-
-## Install locally for development
-
-```bash
-git clone https://github.com/oh-da/dataink.git
-claude --plugin-dir ./dataink
-```
-
-## Available skills
-
-Once installed, the following skills are available:
-
-- `/dataink:visualizing-data` — design effective, accessible charts
-- `/dataink:storytelling-with-data` — structure data narratives
-- `/dataink:creating-infographics` — create visual summaries
-- `/dataink:reviewing-visualizations` — critique and improve existing charts
-- `/dataink:designing-dashboards` — design dashboard layouts
-
-Claude will also invoke these skills automatically based on task context.
-
-## Customize brand assets
-
-Edit the brand asset files to match your organization:
-
-- `assets/brand-colors.md`
-- `assets/brand-fonts.md`
-
----
-
-# Version History
+## Version History
 
 | Version | Date | What Changed |
 |---------|------|--------------|
-| **v3.0.0** | 2026-04-04 | **New skills:** Visualization Review (P0/P1/P2 linter), Dashboard Design (KPI hierarchy, layout templates). **Accessibility by default:** WCAG AA contrast, CVD-safe palettes (Okabe-Ito, Paul Tol, viridis), redundant encoding, alt text guidance. **Best practices alignment:** gerund skill names, workflow checklists, feedback loops, `$ARGUMENTS` support, trimmed references, de-duplicated content. **Content:** expanded chart matrix (+8 chart types), context-sensitive data-ink ratio, structured context capture, integrity constraints. **Breaking:** skill names and brand asset paths changed. |
-| **v2.0.0** | 2026-03-08 | **Plugin conversion:** added `.claude-plugin/plugin.json` manifest and `marketplace.json` for Claude Code marketplace distribution. Reorganized skills under `skills/` directory. Shorter commands (`/dataink:visualize`, `/dataink:story`, `/dataink:infographic`). Auto-invocation support. Fixed frontmatter compatibility. |
-| **v1.0.0** | 2026-03-06 | **Initial release:** three skills — Data Visualization Expert, Data Storyteller, Infographic Creator. Step-by-step workflows grounded in Tufte, Few, Knaflic, and Gestalt principles. Brand asset customization. Comprehensive source attributions. Reference files for chart types, design principles, narrative arcs, and more. |
+| **v3.0.0** | 2026-04-04 | 5 skills (added Visualization Review and Dashboard Design). Accessibility by default (WCAG AA, CVD-safe palettes, redundant encoding, alt text). Best practices alignment (gerund naming, checklists, feedback loops, `$ARGUMENTS`, trimmed references). Expanded chart matrix (+8 types). Context-sensitive data-ink. Structured context capture. Integrity constraints. Shared brand assets. |
+| **v2.0.0** | 2026-03-08 | Converted to Claude Code plugin. Added marketplace distribution, auto-invocation, and shorter skill commands. |
+| **v1.0.0** | 2026-03-06 | Initial release with 3 skills: Data Visualization Expert, Data Storyteller, Infographic Creator. Workflows grounded in Tufte, Few, Knaflic, and Gestalt principles. |
 
 ---
 
-# Contributing
+## Contributing
 
 Contributions are welcome.
 
@@ -417,7 +288,7 @@ To add a new skill:
 
 ---
 
-# License
+## License
 
 See the LICENSE file for details.
 
