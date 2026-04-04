@@ -393,34 +393,13 @@ Edit the brand asset files to match your organization:
 
 ---
 
-# What's New in v3.0.0
+# Version History
 
-## New Skills
-- **Visualization Review** — critiques existing visualizations against a prioritized P0/P1/P2 rule system
-- **Dashboard Design** — designs dashboard layouts with KPI hierarchy, component selection, and layout templates
-
-## Accessibility by Default
-- WCAG AA contrast checks integrated into every skill
-- CVD-safe color palettes (Okabe-Ito, Paul Tol, viridis, cividis) as defaults
-- Redundant encoding required (never color-only)
-- Alt text guidance for web/BI output
-
-## Structural Improvements
-- Skills renamed to gerund form per official best practices (`visualizing-data`, `storytelling-with-data`, etc.)
-- Brand assets moved to shared `assets/` directory (accessible by all skills)
-- Workflow checklists added to every skill for progress tracking
-- Feedback loops added to validation steps
-- `$ARGUMENTS` support for dynamic skill invocation
-- Reference files trimmed — removed content Claude already knows, kept opinionated application rules
-- De-duplicated shared content across skills
-- Expanded chart selection matrix (dot plots, bullet graphs, slopegraphs, heatmaps, treemaps, choropleths, and more)
-- Context-sensitive data-ink ratio (strict for analytic, flexible for memorability)
-- Structured context capture (audience, medium, goal, constraints)
-- Integrity constraints (uncertainty annotation, metric definitions, no implied causation)
-
-## Breaking Changes
-- Skill names changed: `visualize` → `visualizing-data`, `story` → `storytelling-with-data`, `infographic` → `creating-infographics`
-- Brand asset paths changed from `skills/data-visualization/assets/` to `assets/`
+| Version | Date | What Changed |
+|---------|------|--------------|
+| **v3.0.0** | 2026-04-04 | **New skills:** Visualization Review (P0/P1/P2 linter), Dashboard Design (KPI hierarchy, layout templates). **Accessibility by default:** WCAG AA contrast, CVD-safe palettes (Okabe-Ito, Paul Tol, viridis), redundant encoding, alt text guidance. **Best practices alignment:** gerund skill names, workflow checklists, feedback loops, `$ARGUMENTS` support, trimmed references, de-duplicated content. **Content:** expanded chart matrix (+8 chart types), context-sensitive data-ink ratio, structured context capture, integrity constraints. **Breaking:** skill names and brand asset paths changed. |
+| **v2.0.0** | 2026-03-08 | **Plugin conversion:** added `.claude-plugin/plugin.json` manifest and `marketplace.json` for Claude Code marketplace distribution. Reorganized skills under `skills/` directory. Shorter commands (`/dataink:visualize`, `/dataink:story`, `/dataink:infographic`). Auto-invocation support. Fixed frontmatter compatibility. |
+| **v1.0.0** | 2026-03-06 | **Initial release:** three skills — Data Visualization Expert, Data Storyteller, Infographic Creator. Step-by-step workflows grounded in Tufte, Few, Knaflic, and Gestalt principles. Brand asset customization. Comprehensive source attributions. Reference files for chart types, design principles, narrative arcs, and more. |
 
 ---
 
