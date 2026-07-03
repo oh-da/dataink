@@ -52,13 +52,14 @@ Once installed, the following skills are available:
 
 | Skill | Command | Purpose |
 |-------|---------|---------|
-| Visualizing Data | `/dataink:visualizing-data` | Design effective, accessible charts |
-| Storytelling with Data | `/dataink:storytelling-with-data` | Structure data narratives |
-| Creating Infographics | `/dataink:creating-infographics` | Create visual summaries |
-| Reviewing Visualizations | `/dataink:reviewing-visualizations` | Critique and improve existing charts |
-| Designing Dashboards | `/dataink:designing-dashboards` | Design dashboard layouts |
+| Visualizing Data | `/dataink:data-visualization` | Design effective, accessible charts |
+| Storytelling with Data | `/dataink:data-storyteller` | Structure data narratives |
+| Creating Infographics | `/dataink:infographic-creator` | Create visual summaries |
+| Reviewing Visualizations | `/dataink:visualization-review` | Critique and improve existing charts |
+| Designing Dashboards | `/dataink:dashboard-design` | Design dashboard layouts |
+| Designing Tables | `/dataink:table-design` | Design clear, readable data tables |
 
-Claude will also invoke these skills automatically based on task context.
+Commands come from the skill directory names; Claude will also invoke these skills automatically based on task context.
 
 ### Customize brand assets
 
@@ -91,6 +92,9 @@ H --> C
 
 C --> I[Designing Dashboards]
 I --> J[Dashboard]
+
+A --> K[Designing Tables]
+K --> L[Reference Table]
 
 style B fill:#d4f4dd
 style D fill:#d4e6f4
@@ -143,6 +147,15 @@ Designs effective dashboard layouts.
 - Attention choreography (what the eye sees first, second, third)
 - Layout templates (executive summary, operational monitor, comparison)
 - 5-second validation test
+
+### Designing Tables
+
+Designs clear, readable data tables for when precision beats patterns.
+
+- Row/column structure, meaningful sort order, spanner headers
+- Right-aligned numbers, consistent precision, units in headers
+- White space over rules; light delineation; bold summary rows
+- Optional heatmap/bar overlays for at-a-glance magnitude
 
 ---
 
@@ -205,38 +218,42 @@ dataink/
 ├── .claude-plugin/
 │   └── plugin.json
 ├── assets/                          # Shared across all skills
+│   ├── core-standards.md            # Accessibility, integrity, emphasis, branding rules
 │   ├── brand-colors.md
 │   ├── brand-fonts.md
 │   └── accessible-palettes.md
+├── scripts/                         # Deterministic validation
+│   ├── check_contrast.py            # WCAG AA contrast ratio
+│   ├── check_palette.py             # Pairwise CVD-simulation distinguishability
+│   └── viz-file-detector.py         # PostToolUse hook helper
+├── hooks/
+│   └── hooks.json                   # Suggests visualization-review after chart code is written
 └── skills/
     ├── data-visualization/
     │   ├── SKILL.md
     │   └── references/
-    │       ├── medium-selection.md
-    │       ├── chart-types.md
-    │       └── design-principles.md
+    │       ├── chart-types.md       # Medium selection + chart matrix
+    │       ├── design-principles.md
+    │       └── code-recipes.md      # matplotlib / plotly / vega-lite themes
     ├── data-storyteller/
     │   ├── SKILL.md
     │   └── references/
-    │       ├── narrative-arc.md
-    │       ├── flow-and-repetition.md
-    │       └── logic-validation.md
+    │       └── storytelling-methods.md
     ├── infographic-creator/
     │   ├── SKILL.md
     │   └── references/
-    │       ├── audience-context.md
-    │       └── visual-hierarchy.md
+    │       └── audience-context.md
     ├── visualization-review/
     │   ├── SKILL.md
     │   └── references/
-    │       ├── p0-rules.md
-    │       ├── p1-rules.md
-    │       └── p2-rules.md
-    └── dashboard-design/
-        ├── SKILL.md
-        └── references/
-            ├── kpi-components.md
-            └── layout-patterns.md
+    │       └── review-rules.md      # P0 / P1 / P2
+    ├── dashboard-design/
+    │   ├── SKILL.md
+    │   └── references/
+    │       ├── kpi-components.md
+    │       └── layout-patterns.md
+    └── table-design/
+        └── SKILL.md
 ```
 
 ### Skill Architecture
@@ -268,9 +285,20 @@ The AI loads instructions first and consults assets or references only when nece
 
 | Version | Date | What Changed |
 |---------|------|--------------|
+| **v3.1.0** | 2026-07-03 | Token-efficiency refactor: shared `core-standards.md` replaces rules duplicated across skills; reference files consolidated; boilerplate removed (~45% fewer tokens per invocation). Deterministic validation scripts (WCAG contrast, CVD-simulation palette check) replace eyeballed accessibility checks. PostToolUse hook suggests visualization-review when chart code is written. New Designing Tables skill and per-library code recipes (matplotlib/plotly/vega-lite). Fixed command names in docs and version sync. |
 | **v3.0.0** | 2026-04-04 | 5 skills (added Visualization Review and Dashboard Design). Accessibility by default (WCAG AA, CVD-safe palettes, redundant encoding, alt text). Best practices alignment (gerund naming, checklists, feedback loops, `$ARGUMENTS`, trimmed references). Expanded chart matrix (+8 types). Context-sensitive data-ink. Structured context capture. Integrity constraints. Shared brand assets. |
 | **v2.0.0** | 2026-03-08 | Converted to Claude Code plugin. Added marketplace distribution, auto-invocation, and shorter skill commands. |
 | **v1.0.0** | 2026-03-06 | Initial release with 3 skills: Data Visualization Expert, Data Storyteller, Infographic Creator. Workflows grounded in Tufte, Few, Knaflic, and Gestalt principles. |
+
+---
+
+## Roadmap
+
+Planned sub-skills, in rough priority order:
+
+- **uncertainty-viz** — error bars, confidence bands, forecast fans; how to show what you don't know (review rule 12 flags missing uncertainty; this would teach the fix)
+- **geospatial-maps** — choropleth normalization (per-capita, not raw counts), projections, bivariate maps, hexbins
+- **exploratory-viz** — the exploratory counterpart to the current explanatory focus: profiling plots, pair plots, small multiples for scanning
 
 ---
 
@@ -320,7 +348,7 @@ The `visualizing-data` skill also draws on several of these design and chart sel
 
 ### Stephen Few — *Show Me the Numbers* (Perceptual Edge, 2004)
 
-The seven-category relationship taxonomy used to organize chart selection in the `visualizing-data` skill — time-series, nominal comparison, ranking, part-to-whole, deviation, distribution, and correlation — originates in this work. The **bullet graph**, used in the `designing-dashboards` skill as the recommended alternative to gauges for displaying a single measure against a target, was invented by Few. The color strategy of using muted, natural tones for baseline data and reserving vivid color for emphasis also draws on Few's guidance.
+The seven-category relationship taxonomy used to organize chart selection in the `visualizing-data` skill — time-series, nominal comparison, ranking, part-to-whole, deviation, distribution, and correlation — originates in this work. The **bullet graph**, used in the `designing-dashboards` skill as the recommended alternative to gauges for displaying a single measure against a target, was invented by Few. The color strategy of using muted, natural tones for baseline data and reserving vivid color for emphasis also draws on Few's guidance. The `designing-tables` skill adapts Few's table design guidance: row/column arrangement, alignment and number formatting, and delineating with white space rather than grids.
 
 ### Edward Tufte — *The Visual Display of Quantitative Information* (Graphics Press, 1983)
 
