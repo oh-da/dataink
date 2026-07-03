@@ -1,8 +1,16 @@
 # Chart Selection Matrix
 
-Identify the data relationship first, then match to the appropriate visual form. This matrix is organized by Stephen Few's seven-category relationship taxonomy.
+## Step 0: Table, Graph, or Simple Text?
+
+Before choosing a chart type, determine the right medium:
+
+- **Individual values needed → Table.** Reader scans rows/columns for specific numbers; best when precision matters. Use the table-design skill for structure, alignment, and formatting. Avoid tables in live presentations — they pull audiences into reading mode.
+- **Patterns and comparisons → Graph.** Viewer perceives trends, clusters, and outliers pre-attentively; best when the message is in the relationships. Continue below.
+- **Just 1–2 numbers → Simple text.** Display prominently with a supporting phrase. No chart wrapper needed.
 
 ## Relationship → Chart Mapping
+
+Identify the data relationship first, then match to the appropriate visual form. This matrix is organized by Stephen Few's seven-category relationship taxonomy.
 
 | Relationship | Primary charts | When to use alternatives |
 |---|---|---|
