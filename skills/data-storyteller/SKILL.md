@@ -1,5 +1,5 @@
 ---
-name: storytelling-with-data
+name: data-storyteller
 description: Structures the narrative arc, flow, and logic of data-driven presentations and reports. Use when building slide decks, structuring executive summaries, outlining reports, framing decisions, or improving narrative flow.
 ---
 

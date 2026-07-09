@@ -1,5 +1,5 @@
 ---
-name: reviewing-visualizations
+name: visualization-review
 description: Critiques and improves existing data visualizations using a prioritized rule system (P0 accessibility and integrity, P1 clarity, P2 polish). Use when reviewing charts, auditing dashboards, checking accessibility compliance, or identifying anti-patterns.
 allowed-tools: Bash(python3 *)
 ---

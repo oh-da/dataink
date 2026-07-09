@@ -1,5 +1,5 @@
 ---
-name: visualizing-data
+name: data-visualization
 description: Selects, designs, and refines data visualizations for clarity, accuracy, and accessibility. Use when choosing chart types, improving graphs, reducing clutter, applying brand colors, or designing individual charts.
 allowed-tools: Bash(python3 *)
 ---

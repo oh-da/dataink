@@ -14,7 +14,12 @@
       "version": "3.1.0",
       "author": {
         "name": "Ohad Dahan"
-      }
+      },
+      "homepage": "https://github.com/oh-da/dataink#readme",
+      "repository": "https://github.com/oh-da/dataink",
+      "license": "MIT",
+      "category": "productivity",
+      "keywords": ["data-visualization", "storytelling", "infographic", "charts", "data-communication", "dashboard", "accessibility", "review"]
     }
   ]
 }

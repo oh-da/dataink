@@ -6,6 +6,7 @@
     "name": "Ohad Dahan"
   },
   "repository": "https://github.com/oh-da/dataink",
+  "homepage": "https://github.com/oh-da/dataink#readme",
   "license": "MIT",
   "keywords": ["data-visualization", "storytelling", "infographic", "charts", "data-communication", "dashboard", "accessibility", "review"]
 }

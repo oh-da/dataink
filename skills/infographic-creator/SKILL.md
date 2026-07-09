@@ -1,5 +1,5 @@
 ---
-name: creating-infographics
+name: infographic-creator
 description: Designs the layout, color strategy, and narrative structure of data-driven infographics. Use when creating infographics, visual summaries, one-page data reports, or combining multiple data points into a single visual.
 allowed-tools: Bash(python3 *)
 ---

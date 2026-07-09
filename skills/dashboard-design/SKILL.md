@@ -1,5 +1,5 @@
 ---
-name: designing-dashboards
+name: dashboard-design
 description: Designs dashboard layouts with KPI hierarchy, component selection, and attention choreography. Use when creating dashboards, KPI displays, monitoring screens, or executive summary views.
 allowed-tools: Bash(python3 *)
 ---

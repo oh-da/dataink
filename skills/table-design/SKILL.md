@@ -1,5 +1,5 @@
 ---
-name: designing-tables
+name: table-design
 description: Designs clear, readable data tables — structure, alignment, number formatting, grouping, and summary rows. Use when presenting exact values, building reference or lookup tables, formatting tabular reports, or when a chart is the wrong medium.
 allowed-tools: Bash(python3 *)
 ---
