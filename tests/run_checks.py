@@ -45,7 +45,7 @@ def run(args, stdin=None):
 
 
 def repo_markdown():
-    for pattern in ("*.md", "skills/**/*.md", "assets/*.md", "evals/*.md"):
+    for pattern in ("*.md", "skills/**/*.md", "assets/*.md", "evals/*.md", "docs/**/*.md"):
         yield from ROOT.glob(pattern)
 
 
@@ -93,6 +93,19 @@ def check_skill_cross_references():
             if name not in skill_dirs:
                 missing.append(f"{skill_md.relative_to(ROOT)} routes to unknown skill '{name}'")
     check("SKILL.md cross-references resolve", not missing, "; ".join(missing))
+
+
+def check_doc_links_resolve():
+    """Relative .md links in README and docs must point at existing files."""
+    missing = []
+    for doc in [ROOT / "README.md", *ROOT.glob("docs/**/*.md")]:
+        text = doc.read_text(encoding="utf-8")
+        for target in re.findall(r"\]\(([^)#\s]+\.md)\)", text):
+            if target.startswith(("http://", "https://")):
+                continue
+            if not (doc.parent / target).resolve().exists():
+                missing.append(f"{doc.relative_to(ROOT)} -> {target}")
+    check("markdown links in README/docs resolve", not missing, "; ".join(missing))
 
 
 def check_versions_in_sync():
@@ -168,6 +181,7 @@ def main():
     check_no_replacement_chars()
     check_no_stale_skill_names()
     check_skill_cross_references()
+    check_doc_links_resolve()
     check_versions_in_sync()
     check_recipe_defaults_pass_contrast()
     check_contrast_script()

@@ -61,6 +61,8 @@ Once installed, the following skills are available:
 
 Commands come from the skill directory names; Claude will also invoke these skills automatically based on task context.
 
+New to this? Start with the [beginner guides](docs/guides/README.md) — one plain-English guide per skill, each with a realistic use case and a copy-paste prompt.
+
 ### Customize brand assets
 
 Edit the brand asset files to match your organization:
@@ -234,6 +236,8 @@ dataink/
 ├── evals/
 │   ├── README.md
 │   └── cases.json                   # Behavioral eval scenarios, one per skill
+├── docs/
+│   └── guides/                      # Plain-English beginner guides, one per skill
 └── skills/
     ├── data-visualization/
     │   ├── SKILL.md
