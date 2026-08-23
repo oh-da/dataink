@@ -108,6 +108,18 @@ def check_doc_links_resolve():
     check("markdown links in README/docs resolve", not missing, "; ".join(missing))
 
 
+def check_guide_language_parity():
+    """Every beginner guide must exist in both languages, and Hebrew guides
+    must be RTL-wrapped."""
+    en = {p.name for p in (ROOT / "docs/guides/en").glob("*.md")}
+    he = {p.name for p in (ROOT / "docs/guides/he").glob("*.md")}
+    check("English and Hebrew guide sets mirror each other",
+          bool(en) and en == he, f"only in one language: {sorted(en ^ he)}")
+    unwrapped = [p.name for p in (ROOT / "docs/guides/he").glob("*.md")
+                 if not p.read_text(encoding="utf-8").startswith('<div dir="rtl">')]
+    check("Hebrew guides start with an rtl wrapper", not unwrapped, ", ".join(unwrapped))
+
+
 def check_versions_in_sync():
     plugin = json.loads((ROOT / ".claude-plugin/plugin.json").read_text())
     market = json.loads((ROOT / ".claude-plugin/marketplace.json").read_text())
@@ -193,6 +205,7 @@ def main():
     check_no_stale_skill_names()
     check_skill_cross_references()
     check_doc_links_resolve()
+    check_guide_language_parity()
     check_versions_in_sync()
     check_recipe_defaults_pass_contrast()
     check_contrast_script()
