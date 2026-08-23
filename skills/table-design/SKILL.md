@@ -16,6 +16,7 @@ All shared rules in `../../assets/core-standards.md` apply (contrast, no color-o
 - The data must dominate — structure (rules, fills, borders) stays in the background.
 - Never center-align numbers or their headers.
 - Avoid tables in live presentations — they pull audiences into reading mode.
+- RTL documents (Hebrew/Arabic): text columns right-align (the text rule flips); numbers keep LTR digits and stay right-aligned. For HTML in an RTL document, set `dir="rtl"` on the table so the lookup column sits on the right.
 
 ## Instructions
 

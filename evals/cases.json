@@ -20,6 +20,23 @@
       ]
     },
     {
+      "id": "viz-hebrew-rtl",
+      "skill": "data-visualization",
+      "prompt": "צור גרף עמודות של מכירות לפי עיר: תל אביב 61, ירושלים 48, חיפה 39, באר שבע 27. תל אביב היא הסיפור. Use matplotlib.",
+      "must": [
+        "Hebrew text renders in correct glyph order — version-gated handling (bidi get_display only on matplotlib < 3.11; strings as-is on >= 3.11) or check_rtl.py consulted",
+        "chart geometry stays left-to-right: bar order, axes, value axis on the left",
+        "Hebrew action title anchored right (loc='right')",
+        "output verified by rendering a test image and reading a label back",
+        "highlight-one-grey-rest and zero baseline as usual"
+      ],
+      "must_not": [
+        "mirrored or inverted axes 'because Hebrew'",
+        "bidi get_display applied unconditionally without a matplotlib version check",
+        "reversed/garbled Hebrew labels in the final output (e.g. \"ביבא לת\")"
+      ]
+    },
+    {
       "id": "table-quarterly-financials",
       "skill": "table-design",
       "prompt": "Build a reference table of quarterly financials per region (revenue, cost, margin %, headcount) for the appendix of a board report. Readers will look up exact values.",

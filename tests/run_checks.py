@@ -151,6 +151,17 @@ def check_palette_script():
           p.returncode == 2 and "Traceback" not in p.stderr, p.stderr)
 
 
+def check_rtl_script():
+    p = run([PY, str(SCRIPTS / "check_rtl.py"), "Revenue by region"])
+    check("check_rtl: plain English exits 0", p.returncode == 0 and "No RTL" in p.stdout, p.stdout)
+    p = run([PY, str(SCRIPTS / "check_rtl.py"), "ירושלים"])
+    check("check_rtl: Hebrew exits 3 with text-only-RTL guidance",
+          p.returncode == 3 and "matplotlib" in p.stdout and "left-to-right" in p.stdout,
+          p.stdout)
+    p = run([PY, str(SCRIPTS / "check_rtl.py")])
+    check("check_rtl: no args exits 2", p.returncode == 2, p.stdout)
+
+
 # ---------------------------------------------------------------- hook
 
 def check_hook_dedup():
@@ -186,6 +197,7 @@ def main():
     check_recipe_defaults_pass_contrast()
     check_contrast_script()
     check_palette_script()
+    check_rtl_script()
     check_hook_dedup()
     print()
     if failures:

@@ -23,6 +23,7 @@ Common problems include:
 - dashboards overloaded with visual noise
 - presentations that show numbers without explaining why they matter
 - visualizations that exclude color-blind users or fail accessibility standards
+- Hebrew and Arabic labels that render mirror-reversed, or charts wrongly flipped for RTL audiences
 
 DataInk addresses these issues by encoding expert workflows into reusable AI skills with built-in accessibility checks, structured validation, and prioritized rule enforcement.
 
@@ -114,6 +115,7 @@ Transforms raw data into clear, accessible charts.
 - Apply brand colors and CVD-safe accessible palettes
 - Validate with the "eyes drawn" test
 - Check WCAG AA contrast and redundant encoding
+- Hebrew/Arabic support: text renders RTL correctly (version-gated per library), chart geometry stays LTR
 
 ### Creating Infographics
 
@@ -227,6 +229,7 @@ dataink/
 ├── scripts/                         # Deterministic validation
 │   ├── check_contrast.py            # WCAG AA contrast ratio
 │   ├── check_palette.py             # Pairwise CVD-simulation distinguishability
+│   ├── check_rtl.py                 # Hebrew/Arabic text detection + per-library handling
 │   └── viz-file-detector.py         # PostToolUse hook helper
 ├── hooks/
 │   └── hooks.json                   # Suggests visualization-review after chart code is written
@@ -295,6 +298,7 @@ The AI loads instructions first and consults assets or references only when nece
 
 | Version | Date | What Changed |
 |---------|------|--------------|
+| **v3.3.0** | 2026-08-23 | Hebrew/RTL support, text-only RTL policy: text renders right-to-left, chart geometry stays left-to-right (numbers are LTR in Hebrew too — never mirror the chart). Version-gated matplotlib handling (< 3.11 needs python-bidi's `get_display`; ≥ 3.11 has native bidi and is garbled *by* it); browser renderers take strings as-is. Right-anchored RTL action titles. New blocking review rule 7 for reversed glyph order (P1/P2 rules renumbered). New `scripts/check_rtl.py` environment probe, Hebrew eval case, RTL checks in the consistency suite, and a beginner guide for Hebrew charts. |
 | **v3.2.0** | 2026-08-23 | Consistency release: the 3:1 non-text contrast rule now applies to message-bearing marks, with an explicit exception for de-emphasized context series; recipe baseline grey darkened `#B0B0B0` → `#949494` so generated defaults pass the plugin's own check; on-white contrast annotations for the Okabe-Ito and Tol palettes; stale pre-v3.1 skill names fixed in docs and table-design; `allowed-tools` scoped to the two validation scripts via `${CLAUDE_PLUGIN_ROOT}`; visualization-review samples hex values from images before running checks; PostToolUse nudge deduplicated to once per file per session; `check_palette.py --bg` argument guard; new `tests/run_checks.py` consistency suite and `evals/` scenarios. |
 | **v3.1.0** | 2026-07-03 | Token-efficiency refactor: shared `core-standards.md` replaces rules duplicated across skills; reference files consolidated; boilerplate removed (~45% fewer tokens per invocation). Deterministic validation scripts (WCAG contrast, CVD-simulation palette check) replace eyeballed accessibility checks. PostToolUse hook suggests visualization-review when chart code is written. New Designing Tables skill and per-library code recipes (matplotlib/plotly/vega-lite). Fixed command names in docs and version sync. |
 | **v3.0.0** | 2026-04-04 | 5 skills (added Visualization Review and Dashboard Design). Accessibility by default (WCAG AA, CVD-safe palettes, redundant encoding, alt text). Best practices alignment (gerund naming, checklists, feedback loops, `$ARGUMENTS`, trimmed references). Expanded chart matrix (+8 types). Context-sensitive data-ink. Structured context capture. Integrity constraints. Shared brand assets. |
@@ -307,7 +311,7 @@ The AI loads instructions first and consults assets or references only when nece
 
 Planned sub-skills, in rough priority order:
 
-- **uncertainty-viz** — error bars, confidence bands, forecast fans; how to show what you don't know (review rule 12 flags missing uncertainty; this would teach the fix)
+- **uncertainty-viz** — error bars, confidence bands, forecast fans; how to show what you don't know (review rule 13 flags missing uncertainty; this would teach the fix)
 - **geospatial-maps** — choropleth normalization (per-capita, not raw counts), projections, bivariate maps, hexbins
 - **exploratory-viz** — the exploratory counterpart to the current explanatory focus: profiling plots, pair plots, small multiples for scanning
 

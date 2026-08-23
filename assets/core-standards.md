@@ -22,7 +22,14 @@ These rules apply to every chart, dashboard, infographic, table, and report. Ind
 - **10% rule:** highlight at most 10% of the visual surface; mute everything else to grey. Over-highlighting = no highlighting.
 - **Action titles:** state the insight ("Sales dropped 12% after stockout"), not the topic ("Q3 Sales").
 - Direct-label series instead of legends when ≤5 series. Label axes with units and time grain.
-- Horizontal text only — no diagonal labels. Left-justify text — no center alignment.
+- Horizontal text only — no diagonal labels. Left-justify text — no center alignment (RTL text right-justifies instead — see the RTL section below).
+
+## RTL text (Hebrew, Arabic)
+
+- **Only the text is right-to-left.** Chart geometry stays left-to-right — bars, category order, time axes, value axis on the left — because numbers are written left-to-right in Hebrew and Arabic too. Never mirror the chart.
+- RTL text must render in correct glyph order, and this is renderer-dependent: browsers (plotly, vega-lite, HTML, SVG) handle it natively; matplotlib only from 3.11 on — older versions need python-bidi, and newer versions are garbled BY python-bidi. Run `check_rtl.py '<text>'` from the plugin's `scripts/` directory for the exact handling, then verify by rendering a test image — reversed text is invisible in code.
+- Right-justify RTL titles and annotations; anchor the action title at the right edge, where reading starts.
+- Mixed content ("מכירות (אלפי ₪)", Latin names, numbers) is normal — the bidi algorithm places embedded LTR runs correctly. The failure to look for is whole words reversed (e.g. "םילשורי" instead of "ירושלים").
 
 ## Branding workflow
 

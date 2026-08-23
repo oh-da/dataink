@@ -76,6 +76,28 @@ HIGHLIGHT, BASELINE = "#0072B2", "#949494"
 ```
 Direct labels: add a `text` mark layer at the series' last point. Highlight one series with a conditional color: `{"condition": {"test": "datum.region === 'A'", "value": "#0072B2"}, "value": "#949494"}`. Bars: quantitative scale gets `"scale": {"zero": true}`.
 
+## RTL text (Hebrew, Arabic)
+
+Only the text is RTL — keep the geometry exactly as the themes above produce it: bars and time axes left-to-right, value axis on the left. Numbers are LTR in Hebrew too; never mirror the chart. What changes:
+
+- **Title anchor moves right:** matplotlib `ax.set_title(..., loc="right")`; plotly `title=dict(x=1, xanchor="right")`; vega-lite `"title": {"anchor": "end"}`.
+- **Glyph order is matplotlib-version-dependent** — run `check_rtl.py '<text>'` (see SKILL.md) for the current environment. The rule it encodes:
+
+```python
+import re, matplotlib
+if tuple(int(x) for x in re.findall(r"\d+", matplotlib.__version__)[:2]) >= (3, 11):
+    fix = lambda s: s                        # native bidi: pass logical order as-is
+else:
+    from bidi.algorithm import get_display   # pip install python-bidi
+    fix = get_display
+# wrap EVERY displayed string: ax.set_title(fix(title), loc="right"),
+# tick labels, ax.set_ylabel(fix(...)), annotations
+```
+
+- **plotly / vega-lite / HTML:** pass strings as-is — browsers apply bidi natively. Never pre-reverse.
+- **Font:** must have Hebrew/Arabic glyphs (matplotlib's default DejaVu Sans covers Hebrew; verify brand fonts).
+- **Verify by rendering:** save a test image and read one label back. Correct: `ירושלים` — garbled: `םילשורי`.
+
 ## After generating
 
 1. Verify colors: `check_contrast.py` and `check_palette.py` (see SKILL.md Step 6).

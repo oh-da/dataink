@@ -1,7 +1,7 @@
 ---
 name: data-visualization
 description: Selects, designs, and refines data visualizations for clarity, accuracy, and accessibility. Use when choosing chart types, improving graphs, reducing clutter, applying brand colors, or designing individual charts.
-allowed-tools: Bash(python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check_contrast.py" *), Bash(python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check_palette.py" *)
+allowed-tools: Bash(python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check_contrast.py" *), Bash(python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check_palette.py" *), Bash(python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check_rtl.py" *)
 ---
 
 # Data Visualization Expert
@@ -11,6 +11,8 @@ The user's request: "$ARGUMENTS"
 ## Critical Constraints
 
 All shared rules in `../../assets/core-standards.md` apply — accessibility (no color-only encoding, WCAG AA contrast, CVD-safe palettes), integrity (zero-baseline bars, no 3D, no dual y-axes, avoid pies), the 10% highlighting rule, and action titles. Read that file before designing.
+
+Hebrew/Arabic text: only the text is RTL — chart geometry stays left-to-right (numbers are LTR in Hebrew too). Follow the RTL section in core-standards and the RTL recipe in `references/code-recipes.md`; never mirror axes or bar order.
 
 ## Instructions
 
@@ -34,8 +36,9 @@ Verify deterministically — do not eyeball contrast:
 ```bash
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check_contrast.py" '#FG' '#BG'
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check_palette.py" '#hex1,#hex2,...'
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check_rtl.py" 'the chart title'   # if any text is Hebrew/Arabic
 ```
-Add redundant encoding where color carries meaning; draft alt text for web/BI output.
+Add redundant encoding where color carries meaning; draft alt text for web/BI output. For RTL text, render a test image and read one label back — reversed glyph order is invisible in code.
 
 ### Step 7: Validate
 Run the "where are your eyes drawn?" test (see core-standards). If the gaze misses the insight, return to Step 3.

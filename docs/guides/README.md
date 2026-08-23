@@ -14,6 +14,7 @@ a simple way to check you got a good result.
 | "I already have a chart — is it any good?" | [Checking a chart](visualization-review.md) |
 | "I need to convince people in a presentation" | [Telling the story](data-storyteller.md) |
 | "I need a good-looking one-pager that sums it all up" | [Making an infographic](infographic-creator.md) |
+| "My chart is in Hebrew (or Arabic) and the text comes out backwards" | [Charts in Hebrew](hebrew-charts.md) |
 
 ## Before you start
 
