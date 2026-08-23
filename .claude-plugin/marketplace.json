@@ -11,7 +11,7 @@
       "name": "dataink",
       "source": "./",
       "description": "AI skills for effective data communication — visualization, storytelling, infographic design, dashboard layout, table design, and visualization review based on Tufte, Few, and Knaflic methodologies",
-      "version": "3.1.1",
+      "version": "3.3.0",
       "author": {
         "name": "Ohad Dahan"
       },

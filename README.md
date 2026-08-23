@@ -23,6 +23,7 @@ Common problems include:
 - dashboards overloaded with visual noise
 - presentations that show numbers without explaining why they matter
 - visualizations that exclude color-blind users or fail accessibility standards
+- Hebrew and Arabic labels that render mirror-reversed, or charts wrongly flipped for RTL audiences
 
 DataInk addresses these issues by encoding expert workflows into reusable AI skills with built-in accessibility checks, structured validation, and prioritized rule enforcement.
 
@@ -60,6 +61,8 @@ Once installed, the following skills are available:
 | Designing Tables | `/dataink:table-design` | Design clear, readable data tables |
 
 Commands come from the skill directory names; Claude will also invoke these skills automatically based on task context.
+
+New to this? Start with the [beginner guides](docs/guides/README.md) — one simple guide per skill, each with a realistic use case and a copy-paste prompt, available in [English](docs/guides/en/README.md) and [Hebrew](docs/guides/he/README.md).
 
 ### Customize brand assets
 
@@ -112,6 +115,7 @@ Transforms raw data into clear, accessible charts.
 - Apply brand colors and CVD-safe accessible palettes
 - Validate with the "eyes drawn" test
 - Check WCAG AA contrast and redundant encoding
+- Hebrew/Arabic support: text renders RTL correctly (version-gated per library), chart geometry stays LTR
 
 ### Creating Infographics
 
@@ -165,31 +169,31 @@ Designs clear, readable data tables for when precision beats patterns.
 
 Quarterly performance, strategy updates, board reports, KPI dashboards.
 
-Recommended: `visualizing-data` → `storytelling-with-data`
+Recommended: `data-visualization` → `data-storyteller`
 
 ### Dashboard and chart design
 
 Redesign cluttered dashboards, choose chart types, remove visual noise, review existing charts.
 
-Recommended: `visualizing-data` → `designing-dashboards` (or `reviewing-visualizations` for existing work)
+Recommended: `data-visualization` → `dashboard-design` (or `visualization-review` for existing work)
 
 ### Data storytelling and presentations
 
 Product analytics, marketing reviews, operations reports, research presentations.
 
-Recommended: `storytelling-with-data`
+Recommended: `data-storyteller`
 
 ### Infographics and visual reports
 
 Annual reports, research summaries, educational visualizations, policy reports.
 
-Recommended: `creating-infographics`
+Recommended: `infographic-creator`
 
 ### Visualization audit and improvement
 
 Review charts before publishing, check accessibility compliance, identify anti-patterns.
 
-Recommended: `reviewing-visualizations`
+Recommended: `visualization-review`
 
 ---
 
@@ -225,9 +229,20 @@ dataink/
 ├── scripts/                         # Deterministic validation
 │   ├── check_contrast.py            # WCAG AA contrast ratio
 │   ├── check_palette.py             # Pairwise CVD-simulation distinguishability
+│   ├── check_rtl.py                 # Hebrew/Arabic text detection + per-library handling
 │   └── viz-file-detector.py         # PostToolUse hook helper
 ├── hooks/
 │   └── hooks.json                   # Suggests visualization-review after chart code is written
+│                                    # (once per file per session)
+├── tests/
+│   └── run_checks.py                # Deterministic consistency suite (scripts, cross-refs, versions)
+├── evals/
+│   ├── README.md
+│   └── cases.json                   # Behavioral eval scenarios, one per skill
+├── docs/
+│   └── guides/                      # Beginner guides, one per skill
+│       ├── en/                      # English
+│       └── he/                      # Hebrew (עברית)
 └── skills/
     ├── data-visualization/
     │   ├── SKILL.md
@@ -285,6 +300,8 @@ The AI loads instructions first and consults assets or references only when nece
 
 | Version | Date | What Changed |
 |---------|------|--------------|
+| **v3.3.0** | 2026-08-23 | Hebrew/RTL support, text-only RTL policy: text renders right-to-left, chart geometry stays left-to-right (numbers are LTR in Hebrew too — never mirror the chart). Version-gated matplotlib handling (< 3.11 needs python-bidi's `get_display`; ≥ 3.11 has native bidi and is garbled *by* it); browser renderers take strings as-is. Right-anchored RTL action titles. New blocking review rule 7 for reversed glyph order (P1/P2 rules renumbered). New `scripts/check_rtl.py` environment probe, Hebrew eval case, RTL checks in the consistency suite, and a beginner guide for Hebrew charts. |
+| **v3.2.0** | 2026-08-23 | Consistency release: the 3:1 non-text contrast rule now applies to message-bearing marks, with an explicit exception for de-emphasized context series; recipe baseline grey darkened `#B0B0B0` → `#949494` so generated defaults pass the plugin's own check; on-white contrast annotations for the Okabe-Ito and Tol palettes; stale pre-v3.1 skill names fixed in docs and table-design; `allowed-tools` scoped to the two validation scripts via `${CLAUDE_PLUGIN_ROOT}`; visualization-review samples hex values from images before running checks; PostToolUse nudge deduplicated to once per file per session; `check_palette.py --bg` argument guard; new `tests/run_checks.py` consistency suite and `evals/` scenarios. |
 | **v3.1.0** | 2026-07-03 | Token-efficiency refactor: shared `core-standards.md` replaces rules duplicated across skills; reference files consolidated; boilerplate removed (~45% fewer tokens per invocation). Deterministic validation scripts (WCAG contrast, CVD-simulation palette check) replace eyeballed accessibility checks. PostToolUse hook suggests visualization-review when chart code is written. New Designing Tables skill and per-library code recipes (matplotlib/plotly/vega-lite). Fixed command names in docs and version sync. |
 | **v3.0.0** | 2026-04-04 | 5 skills (added Visualization Review and Dashboard Design). Accessibility by default (WCAG AA, CVD-safe palettes, redundant encoding, alt text). Best practices alignment (gerund naming, checklists, feedback loops, `$ARGUMENTS`, trimmed references). Expanded chart matrix (+8 types). Context-sensitive data-ink. Structured context capture. Integrity constraints. Shared brand assets. |
 | **v2.0.0** | 2026-03-08 | Converted to Claude Code plugin. Added marketplace distribution, auto-invocation, and shorter skill commands. |
@@ -296,7 +313,7 @@ The AI loads instructions first and consults assets or references only when nece
 
 Planned sub-skills, in rough priority order:
 
-- **uncertainty-viz** — error bars, confidence bands, forecast fans; how to show what you don't know (review rule 12 flags missing uncertainty; this would teach the fix)
+- **uncertainty-viz** — error bars, confidence bands, forecast fans; how to show what you don't know (review rule 13 flags missing uncertainty; this would teach the fix)
 - **geospatial-maps** — choropleth normalization (per-capita, not raw counts), projections, bivariate maps, hexbins
 - **exploratory-viz** — the exploratory counterpart to the current explanatory focus: profiling plots, pair plots, small multiples for scanning
 
@@ -313,6 +330,7 @@ To add a new skill:
 3. Include references if needed (one level deep from SKILL.md)
 4. Reference shared assets from `../../assets/` for brand customization
 5. Follow the official [skill authoring best practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices)
+6. Run the consistency suite before submitting: `python3 tests/run_checks.py`. It verifies cross-file references, palette and recipe contrast compliance, version sync, script behavior, and the hook's dedup logic. Behavioral expectations per skill live in `evals/`.
 
 ---
 
@@ -328,7 +346,7 @@ This repository adapts concepts, frameworks, and principles from the following a
 
 ### Cole Nussbaumer Knaflic — *Storytelling with Data* (Wiley, 2015)
 
-The `storytelling-with-data` and `creating-infographics` skills are substantially adapted from techniques described in this book. Specific frameworks and concepts used include:
+The `data-storyteller` and `infographic-creator` skills are substantially adapted from techniques described in this book. Specific frameworks and concepts used include:
 
 - **The "3-Minute Story"** — a planning exercise for distilling the core narrative (Chapter 1)
 - **The "Big Idea"** — a single-sentence formulation of the key message, originally from Nancy Duarte's *Resonate* (Wiley, 2010) and presented by Knaflic with three structural criteria (Chapter 1)
@@ -344,15 +362,15 @@ The `storytelling-with-data` and `creating-infographics` skills are substantiall
 - **Application of Gestalt principles** (proximity, similarity, closure, enclosure) to chart design (Chapter 3)
 - **Table vs. graph selection** guidance (Chapter 2)
 
-The `visualizing-data` skill also draws on several of these design and chart selection principles.
+The `data-visualization` skill also draws on several of these design and chart selection principles.
 
 ### Stephen Few — *Show Me the Numbers* (Perceptual Edge, 2004)
 
-The seven-category relationship taxonomy used to organize chart selection in the `visualizing-data` skill — time-series, nominal comparison, ranking, part-to-whole, deviation, distribution, and correlation — originates in this work. The **bullet graph**, used in the `designing-dashboards` skill as the recommended alternative to gauges for displaying a single measure against a target, was invented by Few. The color strategy of using muted, natural tones for baseline data and reserving vivid color for emphasis also draws on Few's guidance. The `designing-tables` skill adapts Few's table design guidance: row/column arrangement, alignment and number formatting, and delineating with white space rather than grids.
+The seven-category relationship taxonomy used to organize chart selection in the `data-visualization` skill — time-series, nominal comparison, ranking, part-to-whole, deviation, distribution, and correlation — originates in this work. The **bullet graph**, used in the `dashboard-design` skill as the recommended alternative to gauges for displaying a single measure against a target, was invented by Few. The color strategy of using muted, natural tones for baseline data and reserving vivid color for emphasis also draws on Few's guidance. The `table-design` skill adapts Few's table design guidance: row/column arrangement, alignment and number formatting, and delineating with white space rather than grids.
 
 ### Edward Tufte — *The Visual Display of Quantitative Information* (Graphics Press, 1983)
 
-The "data-ink ratio" concept — the principle that the share of a graphic's ink devoted to data should be maximized — originates in this work. The related practices of removing chart borders, background fills, and decorative gridlines are applications of this principle. **Sparklines** (used in the `designing-dashboards` skill for KPI trend context) and **slopegraphs** (used in the `visualizing-data` chart selection matrix for before/after comparisons) were popularized by Tufte.
+The "data-ink ratio" concept — the principle that the share of a graphic's ink devoted to data should be maximized — originates in this work. The related practices of removing chart borders, background fills, and decorative gridlines are applications of this principle. **Sparklines** (used in the `dashboard-design` skill for KPI trend context) and **slopegraphs** (used in the `data-visualization` chart selection matrix for before/after comparisons) were popularized by Tufte.
 
 ### Lidwell, Holden, and Butler — *Universal Principles of Design* (Rockport, 2003)
 

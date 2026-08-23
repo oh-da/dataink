@@ -1,14 +1,14 @@
 ---
 name: table-design
 description: Designs clear, readable data tables — structure, alignment, number formatting, grouping, and summary rows. Use when presenting exact values, building reference or lookup tables, formatting tabular reports, or when a chart is the wrong medium.
-allowed-tools: Bash(python3 *)
+allowed-tools: Bash(python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check_contrast.py" *)
 ---
 
 # Table Design
 
 The user's request: "$ARGUMENTS"
 
-Tables communicate through reading, not perception: use them when the audience needs to look up individual values, compare precise numbers, or see multiple units of measure side by side. If the message is a pattern, trend, or comparison, switch to the visualizing-data skill.
+Tables communicate through reading, not perception: use them when the audience needs to look up individual values, compare precise numbers, or see multiple units of measure side by side. If the message is a pattern, trend, or comparison, switch to the data-visualization skill.
 
 ## Critical Constraints
 
@@ -16,11 +16,12 @@ All shared rules in `../../assets/core-standards.md` apply (contrast, no color-o
 - The data must dominate — structure (rules, fills, borders) stays in the background.
 - Never center-align numbers or their headers.
 - Avoid tables in live presentations — they pull audiences into reading mode.
+- RTL documents (Hebrew/Arabic): text columns right-align (the text rule flips); numbers keep LTR digits and stay right-aligned. For HTML in an RTL document, set `dir="rtl"` on the table so the lookup column sits on the right.
 
 ## Instructions
 
 ### Step 1: Confirm the Medium
-Verify a table is right: individual values, precise lookup, mixed units, or audit/appendix detail. Otherwise route to visualizing-data.
+Verify a table is right: individual values, precise lookup, mixed units, or audit/appendix detail. Otherwise route to data-visualization.
 
 ### Step 2: Structure Rows and Columns
 - Put the items being compared in **rows**, the measures in **columns** (scanning down a column compares values fastest).
@@ -46,7 +47,7 @@ Verify a table is right: individual values, precise lookup, mixed units, or audi
 - To add at-a-glance magnitude without losing precision, overlay a heatmap fill or embed bars/sparklines — follow the branding workflow and 10% rule in `../../assets/core-standards.md`.
 - Verify fill/text contrast:
 ```bash
-python3 "${CLAUDE_SKILL_DIR}/../../scripts/check_contrast.py" '#TEXT' '#FILL'
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check_contrast.py" '#TEXT' '#FILL'
 ```
 
 ### Step 7: Accessibility and Output

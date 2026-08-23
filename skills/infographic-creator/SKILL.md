@@ -1,7 +1,7 @@
 ---
 name: infographic-creator
 description: Designs the layout, color strategy, and narrative structure of data-driven infographics. Use when creating infographics, visual summaries, one-page data reports, or combining multiple data points into a single visual.
-allowed-tools: Bash(python3 *)
+allowed-tools: Bash(python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check_contrast.py" *), Bash(python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check_palette.py" *)
 ---
 
 # Infographic Creator
@@ -32,8 +32,8 @@ Use preattentive attributes (color, size, position) to guide the audience throug
 ### Step 5: Accessibility Check
 Verify deterministically — do not eyeball contrast:
 ```bash
-python3 "${CLAUDE_SKILL_DIR}/../../scripts/check_contrast.py" '#FG' '#BG'
-python3 "${CLAUDE_SKILL_DIR}/../../scripts/check_palette.py" '#hex1,#hex2,...'
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check_contrast.py" '#FG' '#BG'
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check_palette.py" '#hex1,#hex2,...'
 ```
 Add redundant encoding; draft alt text per panel for web output.
 

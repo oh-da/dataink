@@ -5,7 +5,8 @@ These rules apply to every chart, dashboard, infographic, table, and report. Ind
 ## Accessibility (non-negotiable)
 
 - Never use color as the sole encoding — always pair with labels, patterns, markers, or position.
-- WCAG AA contrast: **4.5:1** for text (3:1 for large text ≥18pt or bold ≥14pt); **3:1** for data marks (lines, bars, points) against background and adjacent colors.
+- WCAG AA contrast: **4.5:1** for text (3:1 for large text ≥18pt or bold ≥14pt); **3:1** for message-bearing data marks (the highlighted series, and every series in a chart with no de-emphasis) against background and adjacent colors.
+- Deliberately de-emphasized context series (highlight-one-grey-rest) may sit below 3:1, but must stay clearly visible and must never be the only place the insight lives. Axis lines, ticks, and gridlines are structure, not data marks — keep them light. On white, `#949494` is the lightest grey that still passes 3:1, so use it for muted marks that carry meaning.
 - Default to CVD-safe palettes — see `accessible-palettes.md`. Verify programmatically with `check_palette.py '#hex1,#hex2,...'` from the plugin's `scripts/` directory (each SKILL.md gives the exact invocation path).
 - For web/BI/screen-reader contexts, draft alt text stating the chart type, key pattern, and primary insight.
 
@@ -21,7 +22,14 @@ These rules apply to every chart, dashboard, infographic, table, and report. Ind
 - **10% rule:** highlight at most 10% of the visual surface; mute everything else to grey. Over-highlighting = no highlighting.
 - **Action titles:** state the insight ("Sales dropped 12% after stockout"), not the topic ("Q3 Sales").
 - Direct-label series instead of legends when ≤5 series. Label axes with units and time grain.
-- Horizontal text only — no diagonal labels. Left-justify text — no center alignment.
+- Horizontal text only — no diagonal labels. Left-justify text — no center alignment (RTL text right-justifies instead — see the RTL section below).
+
+## RTL text (Hebrew, Arabic)
+
+- **Only the text is right-to-left.** Chart geometry stays left-to-right — bars, category order, time axes, value axis on the left — because numbers are written left-to-right in Hebrew and Arabic too. Never mirror the chart.
+- RTL text must render in correct glyph order, and this is renderer-dependent: browsers (plotly, vega-lite, HTML, SVG) handle it natively; matplotlib only from 3.11 on — older versions need python-bidi, and newer versions are garbled BY python-bidi. Run `check_rtl.py '<text>'` from the plugin's `scripts/` directory for the exact handling, then verify by rendering a test image — reversed text is invisible in code.
+- Right-justify RTL titles and annotations; anchor the action title at the right edge, where reading starts.
+- Mixed content ("מכירות (אלפי ₪)", Latin names, numbers) is normal — the bidi algorithm places embedded LTR runs correctly. The failure to look for is whole words reversed (e.g. "םילשורי" instead of "ירושלים").
 
 ## Branding workflow
 

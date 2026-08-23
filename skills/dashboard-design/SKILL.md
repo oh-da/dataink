@@ -1,7 +1,7 @@
 ---
 name: dashboard-design
 description: Designs dashboard layouts with KPI hierarchy, component selection, and attention choreography. Use when creating dashboards, KPI displays, monitoring screens, or executive summary views.
-allowed-tools: Bash(python3 *)
+allowed-tools: Bash(python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check_contrast.py" *), Bash(python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check_palette.py" *)
 ---
 
 # Dashboard Design
@@ -34,8 +34,8 @@ Top row: primary KPIs, large and left-aligned. Middle: supporting charts. Bottom
 ### Step 5: Apply Branding, Color, and Accessibility
 Follow the branding workflow in `../../assets/core-standards.md`. On dashboards, alert states (red) should be the only vivid color. Verify contrast deterministically:
 ```bash
-python3 "${CLAUDE_SKILL_DIR}/../../scripts/check_contrast.py" '#FG' '#BG'
-python3 "${CLAUDE_SKILL_DIR}/../../scripts/check_palette.py" '#hex1,#hex2,...'
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check_contrast.py" '#FG' '#BG'
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check_palette.py" '#hex1,#hex2,...'
 ```
 
 ### Step 6: Validate — 5-Second Test

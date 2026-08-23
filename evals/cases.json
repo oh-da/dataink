@@ -1,0 +1,124 @@
+{
+  "description": "Behavioral eval scenarios for the DataInk skills. Each case is a prompt to run with the named skill and a checklist to score the output against. 'must' items are required for a pass; 'must_not' items fail the case if present. See README.md for how to run and score.",
+  "cases": [
+    {
+      "id": "viz-ranking-highlight",
+      "skill": "data-visualization",
+      "prompt": "Here are 12 product categories with annual revenue. Category 'Accessories' is the one leadership cares about. Make a chart: Electronics 4.2M, Furniture 3.1M, Accessories 2.9M, Office 2.6M, Apparel 2.2M, Outdoor 1.9M, Toys 1.6M, Beauty 1.4M, Grocery 1.1M, Auto 0.9M, Books 0.7M, Music 0.4M.",
+      "must": [
+        "sorted bar chart (descending), horizontal orientation or readable labels",
+        "zero baseline on the value axis",
+        "Accessories highlighted; all other bars muted grey (highlight-one-grey-rest)",
+        "action title stating an insight, not 'Revenue by Category'",
+        "no legend; direct labels or axis labels only",
+        "ran check_contrast.py (or check_palette.py) on the chosen colors before finishing"
+      ],
+      "must_not": [
+        "pie or donut chart",
+        "3D effects or secondary y-axis",
+        "more than ~10% of the surface highlighted"
+      ]
+    },
+    {
+      "id": "viz-hebrew-rtl",
+      "skill": "data-visualization",
+      "prompt": "צור גרף עמודות של מכירות לפי עיר: תל אביב 61, ירושלים 48, חיפה 39, באר שבע 27. תל אביב היא הסיפור. Use matplotlib.",
+      "must": [
+        "Hebrew text renders in correct glyph order — version-gated handling (bidi get_display only on matplotlib < 3.11; strings as-is on >= 3.11) or check_rtl.py consulted",
+        "chart geometry stays left-to-right: bar order, axes, value axis on the left",
+        "Hebrew action title anchored right (loc='right')",
+        "output verified by rendering a test image and reading a label back",
+        "highlight-one-grey-rest and zero baseline as usual"
+      ],
+      "must_not": [
+        "mirrored or inverted axes 'because Hebrew'",
+        "bidi get_display applied unconditionally without a matplotlib version check",
+        "reversed/garbled Hebrew labels in the final output (e.g. \"ביבא לת\")"
+      ]
+    },
+    {
+      "id": "table-quarterly-financials",
+      "skill": "table-design",
+      "prompt": "Build a reference table of quarterly financials per region (revenue, cost, margin %, headcount) for the appendix of a board report. Readers will look up exact values.",
+      "must": [
+        "confirms a table is the right medium (exact-value lookup)",
+        "regions in rows, measures in columns, meaningful sort order",
+        "numbers right-aligned with consistent precision; units/%/currency in headers, not cells",
+        "white space or light rules for grouping; no full grid or heavy borders",
+        "HTML output (if produced) uses <th scope> and a <caption>"
+      ],
+      "must_not": [
+        "center-aligned numbers or headers",
+        "zebra striping with saturated fills",
+        "recommending this table for a live presentation slide"
+      ]
+    },
+    {
+      "id": "review-pie-redgreen",
+      "skill": "visualization-review",
+      "prompt": "Review this chart: a pie chart with 12 slices showing market share per competitor, colored red for declining and green for growing companies, titled 'Market Share'. It will be published on our public web dashboard.",
+      "must": [
+        "P0: chart-task mismatch flagged (12-slice pie), with sorted bar suggested",
+        "P0: color-only red/green encoding flagged, redundant encoding suggested",
+        "P0: missing alt text flagged for the web context",
+        "P1: generic title flagged, action title suggested",
+        "report ordered P0 then P1 then P2, each issue with a concrete fix"
+      ],
+      "must_not": [
+        "verdicts on exact contrast ratios without running check_contrast.py or sampling colors",
+        "cosmetic P2 advice presented as blocking"
+      ]
+    },
+    {
+      "id": "dashboard-exec-summary",
+      "skill": "dashboard-design",
+      "prompt": "Design an executive dashboard for a SaaS business: MRR, churn, NPS, CAC, LTV, support tickets, uptime, active users, trial conversions, and 6 more operational metrics the team wants included.",
+      "must": [
+        "pushes back on including all 15 metrics; selects 1-3 primary KPIs",
+        "primary KPIs top-left/top-row, large; supporting charts below; detail last",
+        "bullet graphs or KPI tiles with sparklines (with min/max/target context)",
+        "single-screen layout, or explicit drill-down/secondary views for the rest",
+        "applies the 5-second test before finishing"
+      ],
+      "must_not": [
+        "gauges or dials",
+        "scrolling single-view layout",
+        "more than one vivid color outside alert states"
+      ]
+    },
+    {
+      "id": "story-budget-deck",
+      "skill": "data-storyteller",
+      "prompt": "Our churn doubled after the pricing change, but revenue per account is up 20%. Help me structure a 10-minute presentation asking the exec team to approve a win-back campaign budget.",
+      "must": [
+        "captures context first (audience, medium, goal, time) and states a one-sentence Big Idea",
+        "three-act arc: setup, tension between what-is and what-could-be, resolution",
+        "explicit, specific call to action (approve X by Y)",
+        "action titles for every slide; horizontal-logic check reading titles in sequence",
+        "leads with the ending for a time-constrained exec audience (or justifies chronological)"
+      ],
+      "must_not": [
+        "starting with chart selection before the narrative is structured",
+        "topic-label slide titles ('Churn Overview')",
+        "ending without a concrete ask"
+      ]
+    },
+    {
+      "id": "infographic-public-report",
+      "skill": "infographic-creator",
+      "prompt": "Create a one-page public infographic from our annual impact report: 40% emissions cut since 2020, 12k trees planted, 3 new community programs, 98% employee participation.",
+      "must": [
+        "storyboard with beginning/middle/end before layout; 3-minute story articulated",
+        "simple large text for the headline numbers; accurate encodings for any bars/lines",
+        "one insight per panel with a focal point; 10% highlighting rule respected",
+        "contrast verified with the scripts; alt text drafted per panel",
+        "eyes-drawn test applied to each panel and the whole"
+      ],
+      "must_not": [
+        "3D or distorted encodings even for memorability",
+        "a disjointed grid of facts with no narrative order",
+        "color as the only encoding of meaning"
+      ]
+    }
+  ]
+}
