@@ -1,7 +1,7 @@
 ---
 name: data-visualization
 description: Selects, designs, and refines data visualizations for clarity, accuracy, and accessibility. Use when choosing chart types, improving graphs, reducing clutter, applying brand colors, or designing individual charts.
-allowed-tools: Bash(python3 *)
+allowed-tools: Bash(python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check_contrast.py" *), Bash(python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check_palette.py" *)
 ---
 
 # Data Visualization Expert
@@ -32,8 +32,8 @@ Action title, axis units and time grain, annotate the key pattern directly on th
 ### Step 6: Accessibility Check
 Verify deterministically — do not eyeball contrast:
 ```bash
-python3 "${CLAUDE_SKILL_DIR}/../../scripts/check_contrast.py" '#FG' '#BG'
-python3 "${CLAUDE_SKILL_DIR}/../../scripts/check_palette.py" '#hex1,#hex2,...'
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check_contrast.py" '#FG' '#BG'
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check_palette.py" '#hex1,#hex2,...'
 ```
 Add redundant encoding where color carries meaning; draft alt text for web/BI output.
 

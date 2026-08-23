@@ -25,7 +25,7 @@ The layout controls the viewing sequence. Design it deliberately.
 ```
 ┌──────────────────────────────────┐
 │        Alert Banner (if any)      │  ← Only visible when threshold breached
-├──────────┬──────────┬─��──────────┤
+├──────────┬──────────┬────────────┤
 │  Status  │  Status  │   Status   │  ← Bullet graphs (metric vs. target)
 ├──────────┴──────────┴────────────┤
 │          Trend Over Time          │  ← Line chart with threshold lines

@@ -1,7 +1,7 @@
 ---
 name: visualization-review
 description: Critiques and improves existing data visualizations using a prioritized rule system (P0 accessibility and integrity, P1 clarity, P2 polish). Use when reviewing charts, auditing dashboards, checking accessibility compliance, or identifying anti-patterns.
-allowed-tools: Bash(python3 *)
+allowed-tools: Bash(python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check_contrast.py" *), Bash(python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check_palette.py" *)
 ---
 
 # Visualization Review
@@ -25,9 +25,11 @@ Work through `references/review-rules.md` in priority order. Any P0 failure is a
 
 For contrast and palette rules (P0 rules 4–5), verify deterministically when colors are known — do not eyeball:
 ```bash
-python3 "${CLAUDE_SKILL_DIR}/../../scripts/check_contrast.py" '#FG' '#BG'
-python3 "${CLAUDE_SKILL_DIR}/../../scripts/check_palette.py" '#hex1,#hex2,...'
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check_contrast.py" '#FG' '#BG'
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check_palette.py" '#hex1,#hex2,...'
 ```
+
+When the input is an image, first sample the actual hex values (title and label text, data marks, background) from the image, then run the scripts on those values. If the colors cannot be determined, report rules 4-5 as "not verified" instead of guessing a verdict.
 
 ### Step 3: Generate Report
 Prioritized: P0 issues first with specific fixes, then P1 with suggested redesigns, then P2 polish suggestions. If a level is clean, state "No issues found."
