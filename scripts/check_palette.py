@@ -96,7 +96,11 @@ def main(argv):
     args = [a for a in argv[1:] if not a.startswith("--")]
     bg = None
     if "--bg" in argv:
-        bg = argv[argv.index("--bg") + 1]
+        i = argv.index("--bg")
+        if i + 1 >= len(argv):
+            print("error: --bg requires a color argument")
+            return 2
+        bg = argv[i + 1]
         if bg in args:
             args.remove(bg)
     if len(args) != 1:
