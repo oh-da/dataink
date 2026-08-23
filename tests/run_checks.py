@@ -54,7 +54,9 @@ def repo_markdown():
 def check_no_replacement_chars():
     me = Path(__file__).resolve()
     bad = [p for p in ROOT.rglob("*")
-           if p.is_file() and ".git" not in p.parts and p.resolve() != me
+           if p.is_file() and p.suffix in (".md", ".py", ".json", ".txt")
+           and ".git" not in p.parts and "__pycache__" not in p.parts
+           and p.resolve() != me
            and "�" in p.read_text(encoding="utf-8", errors="replace")]
     check("no U+FFFD replacement characters", not bad, ", ".join(str(p) for p in bad))
 
