@@ -12,6 +12,8 @@ Default color palettes for color-vision-deficiency (CVD) safety and WCAG complia
 
 Use categorical palettes when groups have no inherent order (e.g., product lines, regions).
 
+**On-white contrast caveat:** CVD-safe does not mean contrast-safe. On a white background, only `#009E73`, `#0072B2`, `#D55E00`, `#CC79A7`, and `#000000` from Okabe-Ito — and `#332288`, `#117733`, `#999933`, `#CC6677` from Tol — meet the 3:1 non-text threshold. The light colors (`#E69F00` 2.3:1, `#56B4E9` 2.3:1, `#F0E442` 1.3:1; `#88CCEE` 1.8:1, `#44AA99` 2.8:1, `#DDCC77` 1.6:1) are fine for large fills, dark backgrounds, or de-emphasized context, but not for thin lines or small marks that carry the message on white. Verify the exact combination with `check_palette.py --bg '#FFFFFF'`.
+
 ## Sequential (Low-to-High)
 
 **Viridis:** Perceptually uniform, CVD-safe, prints well in grayscale. Use for continuous quantitative scales (e.g., heatmaps, choropleths).

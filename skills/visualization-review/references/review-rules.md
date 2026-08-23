@@ -31,6 +31,7 @@ Any P0 failure means the visualization is misleading, incorrect, or inaccessible
 - Data marks (lines, bars, points) blend into background or adjacent colors (below 3:1)
 - Thin lines on similar-colored backgrounds are invisible
 - **Fix:** increase line weight, adjust colors, add markers. Verify with `scripts/check_contrast.py`.
+- **Exception:** deliberately de-emphasized context series (highlight-one-grey-rest) may sit below 3:1 when the message-bearing marks pass and the context stays visible — note it under P2 polish, not as a P0 failure.
 
 ### 6. Missing Text Alternative
 - Web/BI/report visual has no alt text for screen readers

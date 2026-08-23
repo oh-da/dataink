@@ -2,7 +2,7 @@
 
 Start every generated chart from the matching theme below. Each encodes the DataInk defaults: no chart borders, no background fills, light-grey structure, horizontal text, direct labels over legends, grey baseline + one highlight, zero-baseline bars.
 
-Highlight color: brand primary if `assets/brand-colors.md` is filled in, otherwise `#0072B2` (CVD-safe blue). Baseline grey: `#B0B0B0`; text/axes grey: `#606060`.
+Highlight color: brand primary if `assets/brand-colors.md` is filled in, otherwise `#0072B2` (CVD-safe blue). Baseline grey for de-emphasized series: `#949494` (the lightest grey that passes the 3:1 non-text check on white); structure (axes, ticks): `#B0B0B0`; text: `#606060`.
 
 ## matplotlib
 
@@ -24,7 +24,7 @@ DATAINK = {
 }
 plt.rcParams.update(DATAINK)
 
-HIGHLIGHT, BASELINE = "#0072B2", "#B0B0B0"
+HIGHLIGHT, BASELINE = "#0072B2", "#949494"
 # usage: color the key series HIGHLIGHT, all others BASELINE;
 # action title: ax.set_title("Sales dropped 12% after stockout", loc="left")
 # direct labels: ax.text(x[-1], y[-1], "Region A", color=HIGHLIGHT, va="center")
@@ -48,7 +48,7 @@ DATAINK_LAYOUT = dict(
     showlegend=False,        # direct-label with annotations instead
     margin=dict(l=60, r=120, t=60, b=40),  # right margin for end-of-line labels
 )
-HIGHLIGHT, BASELINE = "#0072B2", "#B0B0B0"
+HIGHLIGHT, BASELINE = "#0072B2", "#949494"
 # fig = go.Figure(layout=DATAINK_LAYOUT)
 # direct label: fig.add_annotation(x=..., y=..., text="Region A", showarrow=False,
 #                                  font=dict(color=HIGHLIGHT), xanchor="left")
@@ -68,13 +68,13 @@ HIGHLIGHT, BASELINE = "#0072B2", "#B0B0B0"
     },
     "title": {"anchor": "start", "fontSize": 16, "fontWeight": "bold", "color": "#333333"},
     "legend": {"disable": true},
-    "bar": {"color": "#B0B0B0"},
-    "line": {"color": "#B0B0B0"},
+    "bar": {"color": "#949494"},
+    "line": {"color": "#949494"},
     "font": "sans-serif"
   }
 }
 ```
-Direct labels: add a `text` mark layer at the series' last point. Highlight one series with a conditional color: `{"condition": {"test": "datum.region === 'A'", "value": "#0072B2"}, "value": "#B0B0B0"}`. Bars: quantitative scale gets `"scale": {"zero": true}`.
+Direct labels: add a `text` mark layer at the series' last point. Highlight one series with a conditional color: `{"condition": {"test": "datum.region === 'A'", "value": "#0072B2"}, "value": "#949494"}`. Bars: quantitative scale gets `"scale": {"zero": true}`.
 
 ## After generating
 

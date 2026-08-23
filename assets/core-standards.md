@@ -5,7 +5,8 @@ These rules apply to every chart, dashboard, infographic, table, and report. Ind
 ## Accessibility (non-negotiable)
 
 - Never use color as the sole encoding — always pair with labels, patterns, markers, or position.
-- WCAG AA contrast: **4.5:1** for text (3:1 for large text ≥18pt or bold ≥14pt); **3:1** for data marks (lines, bars, points) against background and adjacent colors.
+- WCAG AA contrast: **4.5:1** for text (3:1 for large text ≥18pt or bold ≥14pt); **3:1** for message-bearing data marks (the highlighted series, and every series in a chart with no de-emphasis) against background and adjacent colors.
+- Deliberately de-emphasized context series (highlight-one-grey-rest) may sit below 3:1, but must stay clearly visible and must never be the only place the insight lives. Axis lines, ticks, and gridlines are structure, not data marks — keep them light. On white, `#949494` is the lightest grey that still passes 3:1, so use it for muted marks that carry meaning.
 - Default to CVD-safe palettes — see `accessible-palettes.md`. Verify programmatically with `check_palette.py '#hex1,#hex2,...'` from the plugin's `scripts/` directory (each SKILL.md gives the exact invocation path).
 - For web/BI/screen-reader contexts, draft alt text stating the chart type, key pattern, and primary insight.
 
